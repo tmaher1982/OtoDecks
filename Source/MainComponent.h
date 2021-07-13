@@ -1,6 +1,8 @@
 #pragma once
 
 #include <JuceHeader.h>
+#include "../JuceLibraryCode/JuceHeader.h"
+#include "DJAudioPlayer.h"
 
 //==============================================================================
 /*
@@ -62,6 +64,8 @@ private:
     
     
     void loadURL(juce::URL audioURL);
+    
+    DJAudioPlayer player1;
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainComponent)
 };
