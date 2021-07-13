@@ -10,7 +10,7 @@
 class MainComponent  : public juce::AudioAppComponent,
                        public juce::Button::Listener,
                        public juce::Slider::Listener
-{
+{ 
 public:
     //==============================================================================
     MainComponent();
