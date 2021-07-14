@@ -62,18 +62,21 @@ void MainComponent::prepareToPlay (int samplesPerBlockExpected, double sampleRat
     
     playing = false;
     
+    player1.prepareToPlay(samplesPerBlockExpected, sampleRate);
     
-    formatManager.registerBasicFormats();
+//    formatManager.registerBasicFormats();
+//
+//    transportSource.prepareToPlay(samplesPerBlockExpected, sampleRate);
+//
+//    resampleSource.prepareToPlay(samplesPerBlockExpected, sampleRate);
     
-    transportSource.prepareToPlay(samplesPerBlockExpected, sampleRate);
-    
-    resampleSource.prepareToPlay(samplesPerBlockExpected, sampleRate);
 }
 
 void MainComponent::getNextAudioBlock (const juce::AudioSourceChannelInfo& bufferToFill)
 {
    // transportSource.getNextAudioBlock(bufferToFill);
-    resampleSource.getNextAudioBlock(bufferToFill);
+//    resampleSource.getNextAudioBlock(bufferToFill
+    player1.getNextAudioBlock(bufferToFill);
     
 }
 
@@ -125,7 +128,9 @@ void MainComponent::releaseResources()
     // restarted due to a setting change.
 
     // For more details, see the help for AudioProcessor::releaseResources()
-    transportSource.releaseResources();
+    
+    //transportSource.releaseResources();
+    player1.releaseResources();
 }
 
 //==============================================================================
@@ -164,14 +169,17 @@ void MainComponent::buttonClicked(juce::Button* button)
     if (button == &playButton)
     {
         std::cout << "PLay button was clicked" << std::endl;
-        transportSource.start();
+//        transportSource.start();
         //playing = true;
+        
+        player1.start();
     }
     if (button == &stopButton)
     {
         std::cout << "Stop button was clicked" << std::endl;
-        transportSource.stop();
+//        transportSource.stop();
         //playing = false;
+        player1.stop();
     }
     
     if (button == &loadButton)
@@ -179,7 +187,8 @@ void MainComponent::buttonClicked(juce::Button* button)
         juce::FileChooser chooser{"Select a file..."};
         if (chooser.browseForFileToOpen())
         {
-            loadURL(juce::URL{chooser.getResult()});
+//            loadURL(juce::URL{chooser.getResult()});
+            player1.loadURL(URL{chooser.getResult()});
         }
     }
 }
@@ -207,10 +216,9 @@ void MainComponent::loadURL(juce::URL audioURL)
 {
     auto* reader = formatManager.createReaderFor(audioURL.createInputStream(false));
        if (reader != nullptr) // good file!
-                                                    {
+        {
            std::unique_ptr<juce::AudioFormatReaderSource> newSource (new juce::AudioFormatReaderSource (reader, true));
            transportSource.setSource( newSource.get(), 0, nullptr, reader -> sampleRate);
            readerSource.reset (newSource.release());
-           
        }
 }

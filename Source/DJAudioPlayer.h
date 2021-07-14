@@ -33,4 +33,8 @@ class DJAudioPlayer : public AudioSource
         void start();
         void stop();
 
+    private:
+        AudioFormatManager formatManager;
+        std::unique_ptr<AudioFormatReaderSource> readerSource;
+        AudioTransportSource transportSource;
 };
