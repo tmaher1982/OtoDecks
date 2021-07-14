@@ -46,7 +46,7 @@ private:
     Slider speedSlider;
     Slider posSlider;
     
-    juce::ToggleButton toggleButton{"On or Off"};
+//    ToggleButton toggleButton{"On or Off"};
     
         
     DJAudioPlayer player1;

@@ -29,7 +29,7 @@ MainComponent::MainComponent()
     addAndMakeVisible(speedSlider);
     addAndMakeVisible(posSlider);
     
-    addAndMakeVisible(toggleButton);
+//    addAndMakeVisible(toggleButton);
     
     playButton.addListener(this);
     stopButton.addListener(this);
@@ -153,7 +153,7 @@ void MainComponent::resized()
     posSlider.setBounds(0,rowH * 4, getWidth(),rowH);
     
     loadButton.setBounds(0, rowH * 5, getWidth(),rowH);
-    toggleButton.setBounds(0, rowH * 6  , getWidth(), rowH);
+//    toggleButton.setBounds(0, rowH * 6  , getWidth(), rowH);
     
 }
 
