@@ -57,18 +57,8 @@ void MainComponent::prepareToPlay (int samplesPerBlockExpected, double sampleRat
 
     // For more details, see the help for AudioProcessor::prepareToPlay()
     
-    phase = 0.0;
-    dphase = 0.0001;
-    
-    playing = false;
     
     player1.prepareToPlay(samplesPerBlockExpected, sampleRate);
-    
-//    formatManager.registerBasicFormats();
-//
-//    transportSource.prepareToPlay(samplesPerBlockExpected, sampleRate);
-//
-//    resampleSource.prepareToPlay(samplesPerBlockExpected, sampleRate);
     
 }
 
@@ -199,26 +189,13 @@ void MainComponent::sliderValueChanged (juce::Slider *slider)
     // to detect which slider
     if (slider == &volSlider)
     {
-        //std::cout << "volSlider moved " << slider ->getValue() << std::endl; // get value pointer to get the new slider value
-//        dphase = volSlider.getValue() * 0.001;
-       // dphase = volSlider.getValue() * 0.01;
-        transportSource.setGain(slider -> getValue());
+        
     }
     
     if (slider == &speedSlider)
     {
-        resampleSource.setResamplingRatio(slider -> getValue());
+        
     }
+    
 }
 
-
-void MainComponent::loadURL(juce::URL audioURL)
-{
-    auto* reader = formatManager.createReaderFor(audioURL.createInputStream(false));
-       if (reader != nullptr) // good file!
-        {
-           std::unique_ptr<juce::AudioFormatReaderSource> newSource (new juce::AudioFormatReaderSource (reader, true));
-           transportSource.setSource( newSource.get(), 0, nullptr, reader -> sampleRate);
-           readerSource.reset (newSource.release());
-       }
-}

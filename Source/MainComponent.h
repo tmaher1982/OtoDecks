@@ -46,25 +46,9 @@ private:
     juce::Slider volSlider;
     juce::Slider speedSlider;
     
-    juce::Random rand;
-    double phase;
-    double dphase; // this is for the changing phase
-    
-    bool playing;
-    
-    
     juce::ToggleButton toggleButton{"On or Off"};
     
-    
-    juce::AudioFormatManager formatManager;
-    
-    std::unique_ptr <juce::AudioFormatReaderSource> readerSource; // std::unique_ptr for smart pointer
-    juce::AudioTransportSource transportSource;
-    juce::ResamplingAudioSource resampleSource{&transportSource, false, 2};
-    
-    
-    void loadURL(juce::URL audioURL);
-    
+        
     DJAudioPlayer player1;
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainComponent)
