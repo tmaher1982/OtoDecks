@@ -38,13 +38,13 @@ private:
     // Your private member variables go here...
 
     // juce::TextButton button;
-    juce::TextButton playButton{"PLAY"};
-    juce::TextButton stopButton{"STOP"};
-    juce::TextButton loadButton{"LOAD"};
+    TextButton playButton{"PLAY"};
+    TextButton stopButton{"STOP"};
+    TextButton loadButton{"LOAD"};
     
-    
-    juce::Slider volSlider;
-    juce::Slider speedSlider;
+    Slider volSlider;
+    Slider speedSlider;
+    Slider posSlider;
     
     juce::ToggleButton toggleButton{"On or Off"};
     
