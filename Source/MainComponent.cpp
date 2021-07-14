@@ -157,7 +157,7 @@ void MainComponent::resized()
     
 }
 
-void MainComponent::buttonClicked(juce::Button* button)
+void MainComponent::buttonClicked(Button* button)
 {
     // Querying the memory address of which button was clicked
     if (button == &playButton)
@@ -178,7 +178,7 @@ void MainComponent::buttonClicked(juce::Button* button)
     
     if (button == &loadButton)
     {
-        juce::FileChooser chooser{"Select a file..."};
+        FileChooser chooser{"Select a file..."};
         if (chooser.browseForFileToOpen())
         {
 //            loadURL(juce::URL{chooser.getResult()});
@@ -188,7 +188,7 @@ void MainComponent::buttonClicked(juce::Button* button)
 }
 
 
-void MainComponent::sliderValueChanged (juce::Slider *slider)
+void MainComponent::sliderValueChanged (Slider *slider)
 {
     // to detect which slider
     if (slider == &volSlider)
