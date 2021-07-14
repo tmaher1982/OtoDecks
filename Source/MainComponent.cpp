@@ -8,10 +8,10 @@ MainComponent::MainComponent()
     setSize (800, 600);
 
     // Some platforms require permissions to open input channels so request that here
-    if (juce::RuntimePermissions::isRequired (juce::RuntimePermissions::recordAudio)
-        && ! juce::RuntimePermissions::isGranted (juce::RuntimePermissions::recordAudio))
+    if (RuntimePermissions::isRequired (RuntimePermissions::recordAudio)
+        && ! RuntimePermissions::isGranted (RuntimePermissions::recordAudio))
     {
-        juce::RuntimePermissions::request (juce::RuntimePermissions::recordAudio,
+        RuntimePermissions::request (RuntimePermissions::recordAudio,
                                            [&] (bool granted) { setAudioChannels (granted ? 2 : 0, 2); });
     }
     else
@@ -65,7 +65,7 @@ void MainComponent::prepareToPlay (int samplesPerBlockExpected, double sampleRat
     
 }
 
-void MainComponent::getNextAudioBlock (const juce::AudioSourceChannelInfo& bufferToFill)
+void MainComponent::getNextAudioBlock (const AudioSourceChannelInfo& bufferToFill)
 {
    // transportSource.getNextAudioBlock(bufferToFill);
 //    resampleSource.getNextAudioBlock(bufferToFill
@@ -127,10 +127,10 @@ void MainComponent::releaseResources()
 }
 
 //==============================================================================
-void MainComponent::paint (juce::Graphics& g)
+void MainComponent::paint (Graphics& g)
 {
     // (Our component is opaque, so we must completely fill the background with a solid colour)
-    g.fillAll (getLookAndFeel().findColour (juce::ResizableWindow::backgroundColourId));
+    g.fillAll (getLookAndFeel().findColour (ResizableWindow::backgroundColourId));
 
     // You can add your drawing code here!
     g.setFont(20.0f);
