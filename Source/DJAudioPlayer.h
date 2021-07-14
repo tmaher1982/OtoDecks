@@ -37,4 +37,5 @@ class DJAudioPlayer : public AudioSource
         AudioFormatManager formatManager;
         std::unique_ptr<AudioFormatReaderSource> readerSource;
         AudioTransportSource transportSource;
+    ResamplingAudioSource resampleSource{&transportSource, false, 2};
 };

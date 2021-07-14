@@ -189,12 +189,12 @@ void MainComponent::sliderValueChanged (juce::Slider *slider)
     // to detect which slider
     if (slider == &volSlider)
     {
-        
+        player1.setGain(slider -> getValue());
     }
     
     if (slider == &speedSlider)
     {
-        
+        player1.setSpeed(slider -> getValue());
     }
     
 }
