@@ -65,48 +65,6 @@ void MainComponent::getNextAudioBlock (const AudioSourceChannelInfo& bufferToFil
     
 }
 
-
-
-//void MainComponent::getNextAudioBlock (const juce::AudioSourceChannelInfo& bufferToFill)
-//{
-//    // Your audio-processing code goes here!
-//
-//    // For more details, see the help for AudioProcessor::getNextAudioBlock()
-//
-//    // Right now we are not producing any data, in which case we need to clear the buffer
-//    // (to prevent the output of random noise)
-//
-//    if (!playing)
-//    {
-//        bufferToFill.clearActiveBufferRegion();
-//        return;
-//    }
-//
-//    auto* leftChan = bufferToFill.buffer -> getWritePointer(0,
-//                                                            bufferToFill.startSample);
-//    auto* rightChan = bufferToFill.buffer -> getWritePointer(0,
-//                                                            bufferToFill.startSample);
-//
-//    for (auto i = 0; i < bufferToFill.numSamples; ++i)
-//    {
-//        // double sample = rand.nextDouble() * 0.25;
-//        //double sample = fmod(phase, 0.2);
-//
-//        double sample = sin(phase) *  0.1;
-//
-//        leftChan[i] = sample;
-//        rightChan[i] = sample;
-//
-//        //phase += 0.05;
-////        phase += 0.005;
-//        phase += dphase;
-//    }
-//
-//    //bufferToFill.clearActiveBufferRegion();
-//}
-
-
-
 void MainComponent::releaseResources()
 {
     // This will be called when the audio device stops, or when it is being
@@ -138,55 +96,3 @@ void MainComponent::resized()
     deckGUI2.setBounds(getWidth()/2, 0, getWidth()/2, getHeight());
     
 }
-
-void MainComponent::buttonClicked(Button* button)
-{
-//    // Querying the memory address of which button was clicked
-//    if (button == &playButton)
-//    {
-//        std::cout << "PLay button was clicked" << std::endl;
-////        transportSource.start();
-//        //playing = true;
-//
-//        player1.start();
-//    }
-//    if (button == &stopButton)
-//    {
-//        std::cout << "Stop button was clicked" << std::endl;
-////        transportSource.stop();
-//        //playing = false;
-//        player1.stop();
-//    }
-//
-//    if (button == &loadButton)
-//    {
-//        FileChooser chooser{"Select a file..."};
-//        if (chooser.browseForFileToOpen())
-//        {
-////            loadURL(juce::URL{chooser.getResult()});
-//            player1.loadURL(URL{chooser.getResult()});
-//        }
-//    }
-}
-
-
-void MainComponent::sliderValueChanged (Slider *slider)
-{
-//    // to detect which slider
-//    if (slider == &volSlider)
-//    {
-//        player1.setGain(slider -> getValue());
-//    }
-//
-//    if (slider == &speedSlider)
-//    {
-//        player1.setSpeed(slider -> getValue());
-//    }
-//
-//    if (slider == &posSlider)
-//    {
-//        player1.setPositionRelative(slider -> getValue());
-//    }
-    
-}
-

@@ -10,9 +10,7 @@
     This component lives inside our window, and this is where you should put all
     your controls and content.
 */
-class MainComponent  : public AudioAppComponent,
-                       public Button::Listener,
-                       public Slider::Listener
+class MainComponent  : public AudioAppComponent
 { 
 public:
     //==============================================================================
@@ -28,11 +26,6 @@ public:
     void paint (Graphics& g) override;
     void resized() override;
     
-    /** implement Button listener */
-    void buttonClicked (Button *) override; // Override is needed here
-    
-    /** Implement Slider::Listener */
-    void sliderValueChanged (Slider *slider) override;
 
 private:
     //==============================================================================
