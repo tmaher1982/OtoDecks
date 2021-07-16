@@ -11,6 +11,7 @@
 #pragma once
 
 #include <JuceHeader.h>
+using namespace juce;
 
 //==============================================================================
 /*
@@ -25,5 +26,13 @@ public:
     void resized() override;
 
 private:
+    TextButton playButton{"PLAY"};
+    TextButton stopButton{"STOP"};
+    TextButton loadButton{"LOAD"};
+    
+    Slider volSlider;
+    Slider speedSlider;
+    Slider posSlider;
+    
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (DeckGUI)
 };

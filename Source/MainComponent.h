@@ -3,6 +3,7 @@
 #include <JuceHeader.h>
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "DJAudioPlayer.h"
+#include "DeckGUI.h"
 
 //==============================================================================
 /*
@@ -37,19 +38,8 @@ private:
     //==============================================================================
     // Your private member variables go here...
 
-    // juce::TextButton button;
-    TextButton playButton{"PLAY"};
-    TextButton stopButton{"STOP"};
-    TextButton loadButton{"LOAD"};
-    
-    Slider volSlider;
-    Slider speedSlider;
-    Slider posSlider;
-    
-//    ToggleButton toggleButton{"On or Off"};
-    
         
     DJAudioPlayer player1;
-    
+    DeckGUI deckGUI1;
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainComponent)
 };

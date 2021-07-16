@@ -20,27 +20,8 @@ MainComponent::MainComponent()
         setAudioChannels (0, 2); // Setting to zero to avoid the glitch sounds as no input is needed, and only have a clean clear output
     }
     
-    // addAndMakeVisible(button);
-    addAndMakeVisible(playButton);
-    addAndMakeVisible(stopButton);
-    addAndMakeVisible(loadButton);
-    
-    addAndMakeVisible(volSlider);
-    addAndMakeVisible(speedSlider);
-    addAndMakeVisible(posSlider);
-    
-//    addAndMakeVisible(toggleButton);
-    
-    playButton.addListener(this);
-    stopButton.addListener(this);
-    loadButton.addListener(this);
-    
-    volSlider.addListener(this);
-    speedSlider.addListener(this);
-    posSlider.addListener(this);
-    
-    volSlider.setRange(0.0, 1.0);
-    posSlider.setRange(0.0, 1.0);
+    addAndMakeVisible(deckGUI1);
+   
 }
 
 MainComponent::~MainComponent()
@@ -140,71 +121,58 @@ void MainComponent::paint (Graphics& g)
 
 void MainComponent::resized()
 {
-    // This is called when the MainContentComponent is resized.
-    // If you add any child components, this is where you should
-    // update their positions.
-    double rowH = getHeight() /6;
-    //button.setBounds(0, 0, getWidth(), getHeight()/2);
-    playButton.setBounds(0, 0, getWidth(), rowH);
-    stopButton.setBounds(0, rowH , getWidth(), rowH);
-    
-    volSlider.setBounds(0, rowH * 2, getWidth(), rowH);
-    speedSlider.setBounds(0, rowH * 3, getWidth(), rowH);
-    posSlider.setBounds(0,rowH * 4, getWidth(),rowH);
-    
-    loadButton.setBounds(0, rowH * 5, getWidth(),rowH);
-//    toggleButton.setBounds(0, rowH * 6  , getWidth(), rowH);
+    deckGUI1.setBounds(0,0,getWidth()/2, getHeight());
     
 }
 
 void MainComponent::buttonClicked(Button* button)
 {
-    // Querying the memory address of which button was clicked
-    if (button == &playButton)
-    {
-        std::cout << "PLay button was clicked" << std::endl;
-//        transportSource.start();
-        //playing = true;
-        
-        player1.start();
-    }
-    if (button == &stopButton)
-    {
-        std::cout << "Stop button was clicked" << std::endl;
-//        transportSource.stop();
-        //playing = false;
-        player1.stop();
-    }
-    
-    if (button == &loadButton)
-    {
-        FileChooser chooser{"Select a file..."};
-        if (chooser.browseForFileToOpen())
-        {
-//            loadURL(juce::URL{chooser.getResult()});
-            player1.loadURL(URL{chooser.getResult()});
-        }
-    }
+//    // Querying the memory address of which button was clicked
+//    if (button == &playButton)
+//    {
+//        std::cout << "PLay button was clicked" << std::endl;
+////        transportSource.start();
+//        //playing = true;
+//
+//        player1.start();
+//    }
+//    if (button == &stopButton)
+//    {
+//        std::cout << "Stop button was clicked" << std::endl;
+////        transportSource.stop();
+//        //playing = false;
+//        player1.stop();
+//    }
+//
+//    if (button == &loadButton)
+//    {
+//        FileChooser chooser{"Select a file..."};
+//        if (chooser.browseForFileToOpen())
+//        {
+////            loadURL(juce::URL{chooser.getResult()});
+//            player1.loadURL(URL{chooser.getResult()});
+//        }
+//    }
 }
 
 
 void MainComponent::sliderValueChanged (Slider *slider)
 {
-    // to detect which slider
-    if (slider == &volSlider)
-    {
-        player1.setGain(slider -> getValue());
-    }
-    
-    if (slider == &speedSlider)
-    {
-        player1.setSpeed(slider -> getValue());
-    }
-    
-    if (slider == &posSlider)
-    {
-        player1.setPositionRelative(slider -> getValue());
-    }
+//    // to detect which slider
+//    if (slider == &volSlider)
+//    {
+//        player1.setGain(slider -> getValue());
+//    }
+//
+//    if (slider == &speedSlider)
+//    {
+//        player1.setSpeed(slider -> getValue());
+//    }
+//
+//    if (slider == &posSlider)
+//    {
+//        player1.setPositionRelative(slider -> getValue());
+//    }
     
 }
 
