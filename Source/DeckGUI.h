@@ -18,7 +18,7 @@ using namespace juce;
 //==============================================================================
 /*
 */
-class DeckGUI  : public juce::Component, public Button::Listener, public Slider::Listener
+class DeckGUI  : public juce::Component, public Button::Listener, public Slider::Listener, public FileDragAndDropTarget
 {
 public:
     DeckGUI(DJAudioPlayer* player);
@@ -29,7 +29,10 @@ public:
     
     /** Implement Slider::Listener */
     void sliderValueChanged (Slider *slider) override;
-
+    
+    bool isInterestedInFileDrag(const StringArray &files) override;
+    void filesDropped (const StringArray &files, int x, int y) override;
+    
     void paint (juce::Graphics&) override;
     void resized() override;
 

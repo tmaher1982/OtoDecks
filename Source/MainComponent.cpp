@@ -44,6 +44,13 @@ void MainComponent::prepareToPlay (int samplesPerBlockExpected, double sampleRat
     
     
     player1.prepareToPlay(samplesPerBlockExpected, sampleRate);
+    player2.prepareToPlay(samplesPerBlockExpected, sampleRate);
+    
+    mixerSource.prepareToPlay(samplesPerBlockExpected, sampleRate);
+    
+    mixerSource.addInputSource(&player1, false);
+    mixerSource.addInputSource(&player2, false);
+    
     
 }
 
@@ -51,7 +58,10 @@ void MainComponent::getNextAudioBlock (const AudioSourceChannelInfo& bufferToFil
 {
    // transportSource.getNextAudioBlock(bufferToFill);
 //    resampleSource.getNextAudioBlock(bufferToFill
-    player1.getNextAudioBlock(bufferToFill);
+    
+//    player1.getNextAudioBlock(bufferToFill);
+    mixerSource.getNextAudioBlock(bufferToFill);
+    
     
 }
 
@@ -106,6 +116,8 @@ void MainComponent::releaseResources()
     
     //transportSource.releaseResources();
     player1.releaseResources();
+    player2.releaseResources();
+    mixerSource.releaseResources();
 }
 
 //==============================================================================

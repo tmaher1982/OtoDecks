@@ -127,3 +127,21 @@ void DeckGUI::sliderValueChanged (Slider *slider)
     
 }
 
+bool DeckGUI::isInterestedInFileDrag(const StringArray &files)
+{
+    std::cout << "DeckGUI::isInterestedInFileDrag" << std::endl;
+    return true;
+    
+}
+
+
+void DeckGUI::filesDropped (const StringArray &files, int x, int y)
+{
+    std::cout << "DeckGUI::filesDropped" << std::endl;
+    if(files.size() == 1)
+    {
+        player->loadURL(URL{File{files[0]}});
+    }
+}
+
+
