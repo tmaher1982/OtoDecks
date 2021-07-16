@@ -12,7 +12,7 @@
 #include "DeckGUI.h"
 
 //==============================================================================
-DeckGUI::DeckGUI()
+DeckGUI::DeckGUI(DJAudioPlayer* _player) : player(_player)
 {
     addAndMakeVisible(playButton);
     addAndMakeVisible(stopButton);
@@ -21,6 +21,18 @@ DeckGUI::DeckGUI()
     addAndMakeVisible(volSlider);
     addAndMakeVisible(speedSlider);
     addAndMakeVisible(posSlider);
+    
+    playButton.addListener(this);
+    stopButton.addListener(this);
+    loadButton.addListener(this);
+    
+    volSlider.addListener(this);
+    speedSlider.addListener(this);
+    posSlider.addListener(this);
+    
+    volSlider.setRange(0.0, 1.0);
+    speedSlider.setRange(0.0, 100.0);
+    posSlider.setRange(0.0, 1.0);
 }
 
 DeckGUI::~DeckGUI()
@@ -63,3 +75,55 @@ void DeckGUI::resized()
     loadButton.setBounds(0, rowH * 5, getWidth(),rowH);
 
 }
+
+void DeckGUI::buttonClicked(Button* button)
+{
+    // Querying the memory address of which button was clicked
+    if (button == &playButton)
+    {
+        std::cout << "PLay button was clicked" << std::endl;
+//        transportSource.start();
+        //playing = true;
+
+        player->start();
+    }
+    if (button == &stopButton)
+    {
+        std::cout << "Stop button was clicked" << std::endl;
+//        transportSource.stop();
+        //playing = false;
+        player->stop();
+    }
+
+    if (button == &loadButton)
+    {
+        FileChooser chooser{"Select a file..."};
+        if (chooser.browseForFileToOpen())
+        {
+//            loadURL(juce::URL{chooser.getResult()});
+            player->loadURL(URL{chooser.getResult()});
+        }
+    }
+}
+
+
+void DeckGUI::sliderValueChanged (Slider *slider)
+{
+//    // to detect which slider
+    if (slider == &volSlider)
+    {
+        player->setGain(slider -> getValue());
+    }
+
+    if (slider == &speedSlider)
+    {
+        player->setSpeed(slider -> getValue());
+    }
+
+    if (slider == &posSlider)
+    {
+        player->setPositionRelative(slider -> getValue());
+    }
+    
+}
+

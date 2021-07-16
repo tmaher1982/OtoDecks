@@ -40,6 +40,10 @@ private:
 
         
     DJAudioPlayer player1;
-    DeckGUI deckGUI1;
+    DeckGUI deckGUI1{&player1};
+    
+    DJAudioPlayer player2;
+    DeckGUI deckGUI2{&player2};
+    
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainComponent)
 };

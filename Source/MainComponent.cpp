@@ -21,6 +21,7 @@ MainComponent::MainComponent()
     }
     
     addAndMakeVisible(deckGUI1);
+    addAndMakeVisible(deckGUI2);
    
 }
 
@@ -122,6 +123,7 @@ void MainComponent::paint (Graphics& g)
 void MainComponent::resized()
 {
     deckGUI1.setBounds(0,0,getWidth()/2, getHeight());
+    deckGUI2.setBounds(getWidth()/2, 0, getWidth()/2, getHeight());
     
 }
 
