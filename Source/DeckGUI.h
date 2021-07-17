@@ -22,7 +22,7 @@ using namespace juce;
 class DeckGUI  : public juce::Component, public Button::Listener, public Slider::Listener, public FileDragAndDropTarget
 {
 public:
-    DeckGUI(DJAudioPlayer* player);
+    DeckGUI(DJAudioPlayer* player, AudioFormatManager & formatManagerToUse, AudioThumbnailCache & cacheToUse );
     ~DeckGUI() override;
 
     /** implement Button listener */
