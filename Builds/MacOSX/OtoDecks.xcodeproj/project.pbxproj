@@ -25,6 +25,7 @@
 		7322D5C2B2909B76F93F59C1 /* include_juce_audio_utils.mm */ = {isa = PBXBuildFile; fileRef = AE0C843A50A1B10EAB1363E5; };
 		749CFDF3F7F0B30C5AC3184E /* CoreAudio.framework */ = {isa = PBXBuildFile; fileRef = 035F2690811F871023CE471D; };
 		770141C0B0E8808D3F960CB5 /* QuartzCore.framework */ = {isa = PBXBuildFile; fileRef = 8D9A128735BE58CBC5A96F11; };
+		7EE0CD9F7C009A28D45ABF40 /* WaveformDisplay.cpp */ = {isa = PBXBuildFile; fileRef = B8DF2B3E0A442889CD428156; };
 		849805FB912A8773DAD27D07 /* include_juce_gui_extra.mm */ = {isa = PBXBuildFile; fileRef = 96EBAD2E5356B0B22E0489EE; };
 		85510AD6611AA344FE58168A /* include_juce_gui_basics.mm */ = {isa = PBXBuildFile; fileRef = AEFAD71E779B5E61386BCD70; };
 		9708E663756D86BDB85C6479 /* IOKit.framework */ = {isa = PBXBuildFile; fileRef = 7EC40BA18C50EA5483D5B124; };
@@ -68,8 +69,10 @@
 		A2971EB859C6B5E555581B6D /* AudioToolbox.framework */ /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		A9333322D8BBF2F27ABBBE14 /* MainComponent.cpp */ /* MainComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = MainComponent.cpp; path = ../../Source/MainComponent.cpp; sourceTree = SOURCE_ROOT; };
 		AA6BCD42F9119C5F014625FA /* juce_audio_processors */ /* juce_audio_processors */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_audio_processors; path = /Users/Tamer/Desktop/JUCE/modules/juce_audio_processors; sourceTree = "<absolute>"; };
+		AD7D90F077FB0D760AD2B7E3 /* WaveformDisplay.h */ /* WaveformDisplay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WaveformDisplay.h; path = ../../Source/WaveformDisplay.h; sourceTree = SOURCE_ROOT; };
 		AE0C843A50A1B10EAB1363E5 /* include_juce_audio_utils.mm */ /* include_juce_audio_utils.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = include_juce_audio_utils.mm; path = ../../JuceLibraryCode/include_juce_audio_utils.mm; sourceTree = SOURCE_ROOT; };
 		AEFAD71E779B5E61386BCD70 /* include_juce_gui_basics.mm */ /* include_juce_gui_basics.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = include_juce_gui_basics.mm; path = ../../JuceLibraryCode/include_juce_gui_basics.mm; sourceTree = SOURCE_ROOT; };
+		B8DF2B3E0A442889CD428156 /* WaveformDisplay.cpp */ /* WaveformDisplay.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = WaveformDisplay.cpp; path = ../../Source/WaveformDisplay.cpp; sourceTree = SOURCE_ROOT; };
 		BC43D4B583918DDC652DEB7B /* RecentFilesMenuTemplate.nib */ /* RecentFilesMenuTemplate.nib */ = {isa = PBXFileReference; lastKnownFileType = file.nib; name = RecentFilesMenuTemplate.nib; path = RecentFilesMenuTemplate.nib; sourceTree = SOURCE_ROOT; };
 		C677BD6BFF11880E22A7E12C /* juce_audio_basics */ /* juce_audio_basics */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_audio_basics; path = /Users/Tamer/Desktop/JUCE/modules/juce_audio_basics; sourceTree = "<absolute>"; };
 		C7E354CDB2EE36298BC477F5 /* Carbon.framework */ /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
@@ -112,6 +115,8 @@
 		2D5170044A5240FAD292178F /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				B8DF2B3E0A442889CD428156,
+				AD7D90F077FB0D760AD2B7E3,
 				E1437B03981457FDAA0263CD,
 				2B9D55DE382A90E8C6953C2F,
 				D3DACD054746E83C8A9F155D,
@@ -302,6 +307,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EE0CD9F7C009A28D45ABF40,
 				2A8486B41F95331376D4B012,
 				045E7A9C6C25D3289965AE4D,
 				41FD4E854C63B933B19FEEFA,
