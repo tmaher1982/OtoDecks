@@ -18,7 +18,7 @@
 class WaveformDisplay  : public juce::Component
 {
 public:
-    WaveformDisplay();
+    WaveformDisplay(juce::AudioFormatManager & formatManagerToUse, juce::AudioThumbnailCache & cacheToUse);
     ~WaveformDisplay() override;
 
     void paint (juce::Graphics&) override;
