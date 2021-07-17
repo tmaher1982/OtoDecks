@@ -13,7 +13,7 @@
 
 
 //==============================================================================
-WaveformDisplay::WaveformDisplay(juce::AudioFormatManager & formatManagerToUse, juce::AudioThumbnailCache & cacheToUse)
+WaveformDisplay::WaveformDisplay(juce::AudioFormatManager & formatManagerToUse, juce::AudioThumbnailCache & cacheToUse) : audioThumb(1000, formatManagerToUse   , cacheToUse)
 {
     // In your constructor, you should add any child components, and
     // initialise any special settings that your component needs.
