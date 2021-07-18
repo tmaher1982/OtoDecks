@@ -11,6 +11,7 @@
 #include <JuceHeader.h>
 #include "WaveformDisplay.h"
 
+using namespace juce;
 
 //==============================================================================
 WaveformDisplay::WaveformDisplay(juce::AudioFormatManager & formatManagerToUse, juce::AudioThumbnailCache & cacheToUse) : audioThumb(1000, formatManagerToUse   , cacheToUse)
@@ -55,4 +56,14 @@ void WaveformDisplay::loadURL(juce::URL audioURL)
 {
     std::cout << "wfd: loadURL" << std::endl;
     
+    audioThumb.clear();
+    
+    bool loaded = audioThumb.setSource(new URLInputSource(audioURL));
+    if (loaded)
+    {
+        std::cout << "wfd: loaded! " <<std::endl;
+    }
+    else {
+        std::cout << "wfd: not loaded !" <<std::endl;
+    }
 }
