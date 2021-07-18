@@ -40,9 +40,16 @@ void WaveformDisplay::paint (juce::Graphics& g)
     g.drawRect (getLocalBounds(), 1);   // draw an outline around the component
 
     g.setColour (juce::Colours::orange);
-    g.setFont (20.0f);
-    g.drawText ("File not loaded yet ....", getLocalBounds(),
-                juce::Justification::centred, true);   // draw some placeholder text
+    if (fileLoaded)
+    {
+        audioThumb.drawChannel(g, getLocalBounds(), 0, audioThumb.getTotalLength(), 0, 1.0f);
+    }
+    else
+    {
+        g.setFont (20.0f);
+        g.drawText ("File not loaded yet ....", getLocalBounds(),
+                    juce::Justification::centred, true);   // draw some placeholder text
+    }
 }
 
 void WaveformDisplay::resized()
@@ -58,8 +65,8 @@ void WaveformDisplay::loadURL(juce::URL audioURL)
     
     audioThumb.clear();
     
-    bool loaded = audioThumb.setSource(new URLInputSource(audioURL));
-    if (loaded)
+    fileLoaded = audioThumb.setSource(new URLInputSource(audioURL));
+    if (fileLoaded)
     {
         std::cout << "wfd: loaded! " <<std::endl;
     }
