@@ -18,6 +18,7 @@ WaveformDisplay::WaveformDisplay(juce::AudioFormatManager & formatManagerToUse, 
 {
     // In your constructor, you should add any child components, and
     // initialise any special settings that your component needs.
+    audioThumb.addChangeListener(this);
 
 }
 
@@ -61,16 +62,22 @@ void WaveformDisplay::resized()
 
 void WaveformDisplay::loadURL(juce::URL audioURL)
 {
-    std::cout << "wfd: loadURL" << std::endl;
-    
     audioThumb.clear();
     
     fileLoaded = audioThumb.setSource(new URLInputSource(audioURL));
     if (fileLoaded)
     {
         std::cout << "wfd: loaded! " <<std::endl;
+        repaint();
     }
     else {
         std::cout << "wfd: not loaded !" <<std::endl;
     }
 }
+
+void WaveformDisplay::changeListenerCallback (ChangeBroadcaster *source)
+{
+    std::cout << "wfd: change received!" <<std::endl;
+    repaint();
+}
+
