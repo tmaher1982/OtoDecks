@@ -19,7 +19,7 @@ using namespace juce;
 //==============================================================================
 /*
 */
-class DeckGUI  : public juce::Component, public Button::Listener, public Slider::Listener, public FileDragAndDropTarget
+class DeckGUI  : public juce::Component, public Button::Listener, public Slider::Listener, public FileDragAndDropTarget, public Timer
 {
 public:
     DeckGUI(DJAudioPlayer* player, AudioFormatManager & formatManagerToUse, AudioThumbnailCache & cacheToUse );
@@ -36,6 +36,8 @@ public:
     
     void paint (juce::Graphics&) override;
     void resized() override;
+    
+    void timerCallback() override;
 
 private:
     TextButton playButton{"PLAY"};
