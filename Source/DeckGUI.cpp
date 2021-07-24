@@ -153,7 +153,8 @@ void DeckGUI::filesDropped (const StringArray &files, int x, int y)
 
 void DeckGUI::timerCallback()
 {
-    std::cout << "DeckGUI::timerCallback" << std::endl;
+    // std::cout << "DeckGUI::timerCallback" << std::endl;
+    waveformDisplay.setPositionRelative(player->getPositionRelative());
 }
 
 
