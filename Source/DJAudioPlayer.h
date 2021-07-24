@@ -33,7 +33,9 @@ class DJAudioPlayer : public AudioSource
         
         void start();
         void stop();
-
+        
+        /** get the relative position of the playhead */
+        double getPositionRelative();
     private:
         AudioFormatManager& formatManager;
         std::unique_ptr<AudioFormatReaderSource> readerSource;

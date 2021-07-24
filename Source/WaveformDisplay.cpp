@@ -14,7 +14,7 @@
 using namespace juce;
 
 //==============================================================================
-WaveformDisplay::WaveformDisplay(juce::AudioFormatManager & formatManagerToUse, juce::AudioThumbnailCache & cacheToUse) : audioThumb(1000, formatManagerToUse   , cacheToUse), fileLoaded(false)
+WaveformDisplay::WaveformDisplay(juce::AudioFormatManager & formatManagerToUse, juce::AudioThumbnailCache & cacheToUse) : audioThumb(1000, formatManagerToUse   , cacheToUse), fileLoaded(false), position(0)
 {
     // In your constructor, you should add any child components, and
     // initialise any special settings that your component needs.
@@ -44,6 +44,8 @@ void WaveformDisplay::paint (juce::Graphics& g)
     if (fileLoaded)
     {
         audioThumb.drawChannel(g, getLocalBounds(), 0, audioThumb.getTotalLength(), 0, 1.0f);
+        g.setColour(Colours::lightgreen);
+        g.drawRect(position * getWidth(), 0, getWidth()/20, getHeight());
     }
     else
     {
@@ -79,5 +81,16 @@ void WaveformDisplay::changeListenerCallback (ChangeBroadcaster *source)
 {
     std::cout << "wfd: change received!" <<std::endl;
     repaint();
+}
+
+void WaveformDisplay::setPositionRelative(double pos)
+{
+    if (pos != position)
+    {
+        position = pos;
+        repaint();
+    }
+    
+    
 }
 
