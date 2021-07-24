@@ -17,7 +17,7 @@ using namespace juce;
 class DJAudioPlayer : public AudioSource
 {
     public:
-        DJAudioPlayer();
+        DJAudioPlayer(AudioFormatManager& _formatManager);
         ~DJAudioPlayer();
     
         //==============================================================================
@@ -35,7 +35,7 @@ class DJAudioPlayer : public AudioSource
         void stop();
 
     private:
-        AudioFormatManager formatManager;
+        AudioFormatManager& formatManager;
         std::unique_ptr<AudioFormatReaderSource> readerSource;
         AudioTransportSource transportSource;
         ResamplingAudioSource resampleSource{&transportSource, false, 2};
