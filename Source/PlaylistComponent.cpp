@@ -16,7 +16,9 @@ PlaylistComponent::PlaylistComponent()
 {
     // In your constructor, you should add any child components, and
     // initialise any special settings that your component needs.
-
+    tableComponent.getHeader().addColumn("Track title", 1, 400); // Making 1 instead of 0 for juce 6
+    tableComponent.getHeader().addColumn("Artist", 2, 400);
+    addAndMakeVisible(tableComponent);
 }
 
 PlaylistComponent::~PlaylistComponent()
@@ -47,5 +49,5 @@ void PlaylistComponent::resized()
 {
     // This method is where you should set the bounds of any child
     // components that your component contains..
-
+    tableComponent.setBounds(0,0,getWidth(), getHeight());
 }
