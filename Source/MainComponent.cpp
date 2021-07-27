@@ -23,6 +23,8 @@ MainComponent::MainComponent()
     addAndMakeVisible(deckGUI1);
     addAndMakeVisible(deckGUI2);
     
+    addAndMakeVisible(playlistComponent);
+    
     formatManager.registerBasicFormats();
    
 }
@@ -94,7 +96,9 @@ void MainComponent::paint (Graphics& g)
 
 void MainComponent::resized()
 {
-    deckGUI1.setBounds(0,0,getWidth()/2, getHeight());
-    deckGUI2.setBounds(getWidth()/2, 0, getWidth()/2, getHeight());
+    deckGUI1.setBounds(0,0,getWidth()/2, getHeight()/2);
+    deckGUI2.setBounds(getWidth()/2, 0, getWidth()/2, getHeight() /2 );
+    
+    playlistComponent.setBounds(0, getHeight()/2,getWidth(),getHeight()/2);
     
 }
