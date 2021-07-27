@@ -30,6 +30,7 @@
 		85510AD6611AA344FE58168A /* include_juce_gui_basics.mm */ = {isa = PBXBuildFile; fileRef = AEFAD71E779B5E61386BCD70; };
 		9708E663756D86BDB85C6479 /* IOKit.framework */ = {isa = PBXBuildFile; fileRef = 7EC40BA18C50EA5483D5B124; };
 		BC2237E53B721B0AF28D5217 /* MainComponent.cpp */ = {isa = PBXBuildFile; fileRef = A9333322D8BBF2F27ABBBE14; };
+		C4F333CC6E24D2E5AE354604 /* PlaylistComponent.cpp */ = {isa = PBXBuildFile; fileRef = A1D7B27AB799E264CA2A44C1; };
 		C54A631A5FCC1C5E2441D2DB /* RecentFilesMenuTemplate.nib */ = {isa = PBXBuildFile; fileRef = BC43D4B583918DDC652DEB7B; };
 		C65BAB99812CAA66C6BAF411 /* include_juce_audio_processors.mm */ = {isa = PBXBuildFile; fileRef = 14168737971092A2562493C4; };
 		C6DDC9CCC59DFAC2E756F05D /* include_juce_graphics.mm */ = {isa = PBXBuildFile; fileRef = 695CEB863F52D7C5CFDE2858; };
@@ -66,6 +67,7 @@
 		8FB3B96A712E9F6901730CD8 /* juce_gui_extra */ /* juce_gui_extra */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_gui_extra; path = /Users/Tamer/Desktop/JUCE/modules/juce_gui_extra; sourceTree = "<absolute>"; };
 		96EBAD2E5356B0B22E0489EE /* include_juce_gui_extra.mm */ /* include_juce_gui_extra.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = include_juce_gui_extra.mm; path = ../../JuceLibraryCode/include_juce_gui_extra.mm; sourceTree = SOURCE_ROOT; };
 		97E08DC87C54201812357100 /* App */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OtoDecks.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1D7B27AB799E264CA2A44C1 /* PlaylistComponent.cpp */ /* PlaylistComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = PlaylistComponent.cpp; path = ../../Source/PlaylistComponent.cpp; sourceTree = SOURCE_ROOT; };
 		A2971EB859C6B5E555581B6D /* AudioToolbox.framework */ /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		A9333322D8BBF2F27ABBBE14 /* MainComponent.cpp */ /* MainComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = MainComponent.cpp; path = ../../Source/MainComponent.cpp; sourceTree = SOURCE_ROOT; };
 		AA6BCD42F9119C5F014625FA /* juce_audio_processors */ /* juce_audio_processors */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_audio_processors; path = /Users/Tamer/Desktop/JUCE/modules/juce_audio_processors; sourceTree = "<absolute>"; };
@@ -83,6 +85,7 @@
 		E1437B03981457FDAA0263CD /* DeckGUI.cpp */ /* DeckGUI.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = DeckGUI.cpp; path = ../../Source/DeckGUI.cpp; sourceTree = SOURCE_ROOT; };
 		E7AAAC9798347B5482C03050 /* juce_graphics */ /* juce_graphics */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_graphics; path = /Users/Tamer/Desktop/JUCE/modules/juce_graphics; sourceTree = "<absolute>"; };
 		E9D395D5BF4C88B9C5767E84 /* juce_data_structures */ /* juce_data_structures */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_data_structures; path = /Users/Tamer/Desktop/JUCE/modules/juce_data_structures; sourceTree = "<absolute>"; };
+		F656E972BC26A08D55884CC0 /* PlaylistComponent.h */ /* PlaylistComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PlaylistComponent.h; path = ../../Source/PlaylistComponent.h; sourceTree = SOURCE_ROOT; };
 		F7C796D4387B22936373FB2A /* juce_audio_utils */ /* juce_audio_utils */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_audio_utils; path = /Users/Tamer/Desktop/JUCE/modules/juce_audio_utils; sourceTree = "<absolute>"; };
 		F8840A5E141A0B85F679B4F8 /* juce_audio_formats */ /* juce_audio_formats */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_audio_formats; path = /Users/Tamer/Desktop/JUCE/modules/juce_audio_formats; sourceTree = "<absolute>"; };
 		F8E488F7326F28ECD25D3D8A /* DJAudioPlayer.h */ /* DJAudioPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DJAudioPlayer.h; path = ../../Source/DJAudioPlayer.h; sourceTree = SOURCE_ROOT; };
@@ -115,6 +118,8 @@
 		2D5170044A5240FAD292178F /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				A1D7B27AB799E264CA2A44C1,
+				F656E972BC26A08D55884CC0,
 				B8DF2B3E0A442889CD428156,
 				AD7D90F077FB0D760AD2B7E3,
 				E1437B03981457FDAA0263CD,
@@ -307,6 +312,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4F333CC6E24D2E5AE354604,
 				7EE0CD9F7C009A28D45ABF40,
 				2A8486B41F95331376D4B012,
 				045E7A9C6C25D3289965AE4D,
