@@ -11,13 +11,20 @@
 #include <JuceHeader.h>
 #include "PlaylistComponent.h"
 
+
 //==============================================================================
 PlaylistComponent::PlaylistComponent()
 {
     // In your constructor, you should add any child components, and
     // initialise any special settings that your component needs.
+    
+    trackTitles.push_back("Track 1");
+    trackTitles.push_back("Track 2");
+    
     tableComponent.getHeader().addColumn("Track title", 1, 400); // Making 1 instead of 0 for juce 6
     tableComponent.getHeader().addColumn("Artist", 2, 400);
+    tableComponent.setModel(this);
+    
     addAndMakeVisible(tableComponent);
 }
 
@@ -50,4 +57,19 @@ void PlaylistComponent::resized()
     // This method is where you should set the bounds of any child
     // components that your component contains..
     tableComponent.setBounds(0,0,getWidth(), getHeight());
+}
+
+int PlaylistComponent::getNumRows()
+{
+    return trackTitles.size();
+}
+
+void PlaylistComponent::paintRowBackground (Graphics &, int rowNumber, int width, int Height, bool rowIsSelected)
+{
+    
+}
+
+void PlaylistComponent::paintCell (Graphics &, int rowNumber, int columnId, int width, int Height, bool rowIsSelected)
+{
+    
 }
