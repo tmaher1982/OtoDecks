@@ -27,6 +27,7 @@ PlaylistComponent::PlaylistComponent()
     
     
     tableComponent.getHeader().addColumn("Track title", 1, 400); // Making 1 instead of 0 for juce 6
+    tableComponent.getHeader().addColumn("", 2, 200); // Making 1 instead of 0 for juce 6
 //    tableComponent.getHeader().addColumn("Artist", 2, 400);
     tableComponent.setModel(this);
     
@@ -84,4 +85,17 @@ void PlaylistComponent::paintRowBackground (Graphics & g, int rowNumber, int wid
 void PlaylistComponent::paintCell (Graphics & g, int rowNumber, int columnId, int width, int Height, bool rowIsSelected)
 {
     g.drawText(trackTitles[rowNumber], 2, 0 , width -4, Height, Justification::centredLeft, true);
+}
+
+Component* PlaylistComponent::refreshComponentForCell (int rowNumber, int columnId, bool isRowSelected, Component *existingComponentToUpdate)
+{
+    
+    if (columnId == 2)
+    {
+        if (existingComponentToUpdate == nullptr)
+        {
+            existingComponentToUpdate = new TextButton{"play"};
+        }
+    }
+    return existingComponentToUpdate;
 }

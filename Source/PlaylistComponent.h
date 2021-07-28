@@ -34,6 +34,9 @@ public:
     void paintCell (Graphics &, int rowNumber, int columnId, int width, int Height, bool rowIsSelected) override;
 private:
     
+    Component* refreshComponentForCell (int rowNumber, int columnId, bool isRowSelected, Component *existingComponentToUpdate) override;
+    
+    
     juce::TableListBox tableComponent;
     std::vector<std::string> trackTitles;
     
