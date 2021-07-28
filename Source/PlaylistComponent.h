@@ -19,7 +19,7 @@ using namespace juce;
 //==============================================================================
 /*
 */
-class PlaylistComponent  : public juce::Component, public juce::TableListBoxModel
+class PlaylistComponent  : public juce::Component, public juce::TableListBoxModel, public juce::Button::Listener
 {
 public:
     PlaylistComponent();
@@ -36,6 +36,7 @@ private:
     
     Component* refreshComponentForCell (int rowNumber, int columnId, bool isRowSelected, Component *existingComponentToUpdate) override;
     
+    void buttonClicked(juce::Button* button) override;
     
     juce::TableListBox tableComponent;
     std::vector<std::string> trackTitles;
