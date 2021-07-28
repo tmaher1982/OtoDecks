@@ -95,6 +95,9 @@ Component* PlaylistComponent::refreshComponentForCell (int rowNumber, int column
         if (existingComponentToUpdate == nullptr)
         {
             TextButton* btn = new TextButton{"play"};
+            String id{std::to_string(rowNumber)};
+            btn->setComponentID(id);
+            
             btn ->addListener(this);
             existingComponentToUpdate = btn;
         }
@@ -104,5 +107,5 @@ Component* PlaylistComponent::refreshComponentForCell (int rowNumber, int column
 
 void PlaylistComponent::buttonClicked(Button* button)
 {
-    std::cout<< "PlaylistComponent::buttonClicked" << std::endl;
+    std::cout<< "PlaylistComponent::buttonClicked" << button->getComponentID() << std::endl;
 }
