@@ -75,6 +75,14 @@ void DeckGUI::resized()
     stopButton.setBounds(0, rowH , getWidth(), rowH);
     
     volSlider.setBounds(0, rowH * 2, getWidth(), rowH);
+    
+    // Changing the Look and Feel for Volume Slider for R2A
+    volSlider.setSliderStyle (Slider::Slider::RotaryHorizontalDrag);
+    volSlider.setRange(0.0f, 5.0f, 0.01f);
+    volSlider.setColour(Slider::ColourIds::thumbColourId, Colours::darkorange);
+    
+    
+    
     speedSlider.setBounds(0, rowH * 3, getWidth(), rowH);
     posSlider.setBounds(0,rowH * 4, getWidth(),rowH);
     waveformDisplay.setBounds(0, rowH * 5, getWidth(), rowH * 2);
