@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<playlist djplaylis>
+        <tracks>
+            <track id="0">
+                <path>FilePath</path>
+                <song>songname</song>
+            </track>
+            <track id="1">
+                <path>FilePath1</path>
+                <song>songname1</song>
+            </track>
+            <track id="2">
+                <path>FilePath2</path>
+                <song>songname2</song>
+            </track>
+            <track id="3">
+                <path>FilePath3</path>
+                <song>songname3</song>
+            </track>
+            <track id="4">
+                <path>FilePath4</path>
+                <song>songname4</song>
+            </track>
+            <track id="5">
+                <path>FilePath5</path>
+                <song>songname5</song>
+            </track>
+        </tracks>
+</playlist>
