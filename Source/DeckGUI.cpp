@@ -90,10 +90,10 @@ void DeckGUI::resized()
     // Changing the Look and Feel for Volume Slider for R2A
     volSlider.setSliderStyle (Slider::Slider::RotaryHorizontalDrag);
 
-    volSlider.setRange(0.0f, 5.0f, 0.01f);
+    volSlider.setRange(0.0f, 1.0f, 0.01f);
     volSlider.setColour(Slider::ColourIds::thumbColourId, Colours::darkorange);
     
-    
+    // Changing the Look and Feel for speed Slider and Pos Slider
     
     speedSlider.setBounds(0, rowH * 3, getWidth(), rowH);
     posSlider.setBounds(0,rowH * 4, getWidth(),rowH);
