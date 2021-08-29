@@ -3,6 +3,10 @@
 <JUCERPROJECT id="L9VRFn" name="OtoDecks" projectType="guiapp" useAppConfig="0"
               addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1">
   <MAINGROUP id="wCI95B" name="OtoDecks">
+    <GROUP id="{18332F81-DB7C-929A-2B0E-E893F9A505B3}" name="Resources">
+      <FILE id="U0x77M" name="Playlist.xml" compile="0" resource="1" file="Source/Playlist.xml"/>
+      <FILE id="cGupVc" name="Play.png" compile="0" resource="1" file="Source/Play.png"/>
+    </GROUP>
     <GROUP id="{ACDEF749-A503-ED40-F4AE-540415260B76}" name="Source">
       <FILE id="RZFyqk" name="PlaylistComponent.cpp" compile="1" resource="0"
             file="Source/PlaylistComponent.cpp"/>

@@ -39,8 +39,14 @@ public:
     
     void timerCallback() override;
 
+//    ImageButton playButton;
+//    Image playImage;
+//    playButton->setImages(&normal, &over, &down);
+    
 private:
     TextButton playButton{"PLAY"};
+//    ImageButton playButton;
+    
     TextButton stopButton{"STOP"};
     TextButton loadButton{"LOAD"};
     

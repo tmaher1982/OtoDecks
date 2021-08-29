@@ -24,10 +24,12 @@ DeckGUI::DeckGUI(DJAudioPlayer* _player, juce::AudioFormatManager & formatManage
     
     addAndMakeVisible(waveformDisplay);
     
+//    playImage = ImageCache::getFromFile(File::getCurrentWorkingDirectory().getChildFile & ("Play.png"));
+//    static Image playImage = ImageCache::getFromMemory(const void* Play.png, int 47000);
+//    Image playImage = ImageCache::getFromMemory(BinaryData::Play_png, BinaryData::Play_pngSize);
     playButton.addListener(this);
     stopButton.addListener(this);
     loadButton.addListener(this);
-    
     volSlider.addListener(this);
     speedSlider.addListener(this);
     posSlider.addListener(this);
@@ -63,6 +65,8 @@ void DeckGUI::paint (juce::Graphics& g)
     g.setFont (14.0f);
     g.drawText ("DeckGUI", getLocalBounds(),
                 juce::Justification::centred, true);   // draw some placeholder text
+    
+//    playButton.setImages(false, false, true, playImage, 1.0f, {}, playImage, 1.0f, {}, playImage, 1.0f, {});
 }
 
 void DeckGUI::resized()
@@ -71,6 +75,8 @@ void DeckGUI::resized()
     // components that your component contains..
     double rowH = getHeight() /8;
     
+//    playButton.setImages(false, false, true, playImage, 1.0f, {Colour(0xff3c1818)}, playImage, 1.0f, {Colour(0xff3c1818)}, playImage, 1.0f, {Colour(0xff3c1818)});
+//    playButton.setImages(false, false, true, playImage, 1.0f, {}, playImage, 1.0f, {}, playImage, 1.0f, {});
     playButton.setBounds(0, 0, getWidth(), rowH);
     stopButton.setBounds(0, rowH , getWidth(), rowH);
     
@@ -78,6 +84,7 @@ void DeckGUI::resized()
     
     // Changing the Look and Feel for Volume Slider for R2A
     volSlider.setSliderStyle (Slider::Slider::RotaryHorizontalDrag);
+
     volSlider.setRange(0.0f, 5.0f, 0.01f);
     volSlider.setColour(Slider::ColourIds::thumbColourId, Colours::darkorange);
     
