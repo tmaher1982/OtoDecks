@@ -96,7 +96,12 @@ void DeckGUI::resized()
     // Changing the Look and Feel for speed Slider and Pos Slider
     
     speedSlider.setBounds(0, rowH * 3, getWidth(), rowH);
+    
+    speedSlider.setColour(Slider::ColourIds::thumbColourId, Colours::darkorange);
+    
     posSlider.setBounds(0,rowH * 4, getWidth(),rowH);
+    posSlider.setColour(Slider::ColourIds::thumbColourId, Colours::darkorange);
+    
     waveformDisplay.setBounds(0, rowH * 5, getWidth(), rowH * 2);
     loadButton.setBounds(0, rowH * 7, getWidth(),rowH);
 
