@@ -22,6 +22,7 @@ MainComponent::MainComponent()
     
     addAndMakeVisible(deckGUI1);
     addAndMakeVisible(deckGUI2);
+    addAndMakeVisible(deckGUI3);
     
     addAndMakeVisible(playlistComponent);
     
@@ -49,12 +50,13 @@ void MainComponent::prepareToPlay (int samplesPerBlockExpected, double sampleRat
     
     player1.prepareToPlay(samplesPerBlockExpected, sampleRate);
     player2.prepareToPlay(samplesPerBlockExpected, sampleRate);
+    player3.prepareToPlay(samplesPerBlockExpected, sampleRate);
     
     //mixerSource.prepareToPlay(samplesPerBlockExpected, sampleRate);
     
     mixerSource.addInputSource(&player1, false);
     mixerSource.addInputSource(&player2, false);
-    
+    mixerSource.addInputSource(&player3, false);
     
 }
 
@@ -79,6 +81,7 @@ void MainComponent::releaseResources()
     //transportSource.releaseResources();
     player1.releaseResources();
     player2.releaseResources();
+    player3.releaseResources();
     mixerSource.releaseResources();
 }
 
@@ -96,8 +99,10 @@ void MainComponent::paint (Graphics& g)
 
 void MainComponent::resized()
 {
-    deckGUI1.setBounds(0,0,getWidth()/2, getHeight()/2);
-    deckGUI2.setBounds(getWidth()/2, 0, getWidth()/2, getHeight() /2 );
+
+        deckGUI1.setBounds(0,0,getWidth()/3, getHeight()/2);
+        deckGUI2.setBounds(getWidth()/3, 0, getWidth()/3, getHeight() /2 );
+        deckGUI3.setBounds(getWidth()* 2/3, 0, getWidth()/3, getHeight() /2 );
     
     playlistComponent.setBounds(0, getHeight()/2,getWidth(),getHeight()/2);
     

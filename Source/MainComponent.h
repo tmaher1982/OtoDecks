@@ -42,6 +42,11 @@ private:
     DJAudioPlayer player2{formatManager};
     DeckGUI deckGUI2{&player2, formatManager, thumbCache};
     
+    
+    // For third deck
+    DJAudioPlayer player3{formatManager};
+    DeckGUI deckGUI3{&player3, formatManager, thumbCache};
+    
     MixerAudioSource mixerSource;
     
     PlaylistComponent playlistComponent;
