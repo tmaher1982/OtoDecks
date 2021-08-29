@@ -49,6 +49,7 @@
 		14168737971092A2562493C4 /* include_juce_audio_processors.mm */ /* include_juce_audio_processors.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = include_juce_audio_processors.mm; path = ../../JuceLibraryCode/include_juce_audio_processors.mm; sourceTree = SOURCE_ROOT; };
 		1B8EDB9E416FAEE4CF4CE704 /* include_juce_events.mm */ /* include_juce_events.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = include_juce_events.mm; path = ../../JuceLibraryCode/include_juce_events.mm; sourceTree = SOURCE_ROOT; };
 		222CF015ACE5BBC4D4C621CF /* Stop.jpg */ /* Stop.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Stop.jpg; path = ../../Source/Stop.jpg; sourceTree = SOURCE_ROOT; };
+		289C5A6718E0C2A18909D7CE /* Stop.png */ /* Stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Stop.png; path = ../../Source/Stop.png; sourceTree = SOURCE_ROOT; };
 		2B0D1EFC0462780CC6381FA3 /* juce_core */ /* juce_core */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_core; path = /Users/Tamer/Desktop/JUCE/modules/juce_core; sourceTree = "<absolute>"; };
 		2B9D55DE382A90E8C6953C2F /* DeckGUI.h */ /* DeckGUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DeckGUI.h; path = ../../Source/DeckGUI.h; sourceTree = SOURCE_ROOT; };
 		41621202EB814893F8BA708F /* Main.cpp */ /* Main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Main.cpp; path = ../../Source/Main.cpp; sourceTree = SOURCE_ROOT; };
@@ -218,6 +219,7 @@
 		C899386BF59DC352ABACEFFC /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				289C5A6718E0C2A18909D7CE,
 				E1F083256019574841E6D38A,
 				222CF015ACE5BBC4D4C621CF,
 				5B9AFE965DEFA7E58593AAA3,

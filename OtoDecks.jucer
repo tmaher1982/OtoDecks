@@ -4,6 +4,7 @@
               addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1">
   <MAINGROUP id="wCI95B" name="OtoDecks">
     <GROUP id="{18332F81-DB7C-929A-2B0E-E893F9A505B3}" name="Assets">
+      <FILE id="S4x42F" name="Stop.png" compile="0" resource="1" file="Source/Stop.png"/>
       <FILE id="U0x77M" name="Playlist.xml" compile="0" resource="1" file="Source/Playlist.xml"/>
       <FILE id="nJZVox" name="Stop.jpg" compile="0" resource="1" file="Source/Stop.jpg"/>
       <FILE id="cGupVc" name="Play.png" compile="0" resource="1" file="Source/Play.png"/>
