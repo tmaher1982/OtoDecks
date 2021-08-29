@@ -63,7 +63,7 @@ void DeckGUI::paint (juce::Graphics& g)
 
     g.setColour (juce::Colours::white);
     g.setFont (14.0f);
-    g.drawText ("DeckGUI", getLocalBounds(),
+    g.drawText ("Speed - Pos", getLocalBounds(),
                 juce::Justification::centred, true);   // draw some placeholder text
     
 //    playButton.setImages(false, false, true, playImage, 1.0f, {}, playImage, 1.0f, {}, playImage, 1.0f, {});
