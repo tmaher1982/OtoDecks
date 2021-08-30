@@ -98,7 +98,8 @@ Component* PlaylistComponent::refreshComponentForCell (int rowNumber, int column
         {
 
             // Gave play button a prefix ID of 10000
-            TextButton* btn = new TextButton{"play"};
+            TextButton* btn = new TextButton{"PLAY"};
+            btn->setColour(0x1000100, juce::Colours::green);
             String id{std::to_string(rowNumber + 10000)};
             btn->setComponentID(id);
             
@@ -112,7 +113,7 @@ Component* PlaylistComponent::refreshComponentForCell (int rowNumber, int column
     {
         if (existingComponentToUpdate == nullptr)
         {
-            TextButton* btn2 = new TextButton{"delete"};
+            TextButton* btn2 = new TextButton{"DELETE"};
 
             // Gave play button a prefix ID of 20000
             String id2{std::to_string(rowNumber + 20000)};
@@ -136,7 +137,7 @@ void PlaylistComponent::buttonClicked(Button* button)
     {
         // Gives back the track ID to delete
         id2 = id2 - 20000;
-        std::cout<< "PlaylistComponent::DELET EbuttonClicked" << trackTitles[id2] << std::endl;
+        std::cout<< "PlaylistComponent::DELETE buttonClicked " << trackTitles[id2] << std::endl;
     }
     
     // Detects if the button is a Play button
@@ -144,7 +145,7 @@ void PlaylistComponent::buttonClicked(Button* button)
     {
         // Gives back the track ID to play
         id = id - 10000;
-        std::cout<< "PlaylistComponent::Play buttonClicked" << trackTitles[id] << std::endl;
+        std::cout<< "PlaylistComponent::Play buttonClicked " << trackTitles[id] << std::endl;
     }
         
     
