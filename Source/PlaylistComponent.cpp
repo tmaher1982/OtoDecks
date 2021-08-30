@@ -28,6 +28,8 @@ PlaylistComponent::PlaylistComponent()
     
     tableComponent.getHeader().addColumn("Track title", 1, 400); // Making 1 instead of 0 for juce 6
     tableComponent.getHeader().addColumn("", 2, 200); // Making 1 instead of 0 for juce 6
+    tableComponent.getHeader().addColumn("", 3, 200); // One more column for the delete button
+    
 //    tableComponent.getHeader().addColumn("Artist", 2, 400);
     tableComponent.setModel(this);
     
@@ -94,12 +96,30 @@ Component* PlaylistComponent::refreshComponentForCell (int rowNumber, int column
     {
         if (existingComponentToUpdate == nullptr)
         {
+
+            // Gave play button a prefix ID of 10000
             TextButton* btn = new TextButton{"play"};
-            String id{std::to_string(rowNumber)};
+            String id{std::to_string(rowNumber + 10000)};
             btn->setComponentID(id);
             
             btn ->addListener(this);
             existingComponentToUpdate = btn;
+            
+        }
+    }
+
+    if (columnId == 3)
+    {
+        if (existingComponentToUpdate == nullptr)
+        {
+            TextButton* btn2 = new TextButton{"delete"};
+
+            // Gave play button a prefix ID of 20000
+            String id2{std::to_string(rowNumber + 20000)};
+            btn2->setComponentID(id2);
+            
+            btn2 ->addListener(this);
+            existingComponentToUpdate = btn2;
         }
     }
     return existingComponentToUpdate;
@@ -107,11 +127,25 @@ Component* PlaylistComponent::refreshComponentForCell (int rowNumber, int column
 
 void PlaylistComponent::buttonClicked(Button* button)
 {
-    // reverting back from juce string to std string then to integer
+   
     int id = std::stoi(button->getComponentID().toStdString());
+    int id2 = std::stoi(button->getComponentID().toStdString());
     
-//    std::cout<< "PlaylistComponent::buttonClicked" << button->getComponentID() << std::endl;
+    // Detects if the button is a Delete button
+    if ( id && id2 >= 20000)
+    {
+        // Gives back the track ID to delete
+        id2 = id2 - 20000;
+        std::cout<< "PlaylistComponent::DELET EbuttonClicked" << trackTitles[id2] << std::endl;
+    }
     
-    // reflecting which track id is selected
-    std::cout<< "PlaylistComponent::buttonClicked" << trackTitles[id] << std::endl;
+    // Detects if the button is a Play button
+    else
+    {
+        // Gives back the track ID to play
+        id = id - 10000;
+        std::cout<< "PlaylistComponent::Play buttonClicked" << trackTitles[id] << std::endl;
+    }
+        
+    
 }
