@@ -143,6 +143,8 @@ Component* PlaylistComponent::refreshComponentForCell (int rowNumber, int column
             
             btn2 ->addListener(this);
             existingComponentToUpdate = btn2;
+            
+            
         }
     }
     return existingComponentToUpdate;
@@ -160,6 +162,10 @@ void PlaylistComponent::buttonClicked(Button* button)
         // Gives back the track ID to delete
         id2 = id2 - 20000;
         std::cout<< "PlaylistComponent::DELETE buttonClicked " << trackTitles[id2] << std::endl;
+        
+        
+        PlaylistComponent::trackTitles.erase(trackTitles.begin() + id2);
+        tableComponent.updateContent();
     }
     
     // Detects if the button is a Play button
@@ -185,11 +191,17 @@ void PlaylistComponent::filesDropped(const juce::StringArray& files, int x, int 
     
     // This gets filename(s) of on or more files dragged in the playlist
     for (const juce::String& filename : files)
+    
     {
         std::cout <<filename << std::endl;
+
 //        std::cout<<"tracktitles size " << trackTitles.size() << std::endl;
         
         PlaylistComponent::trackTitles.push_back("Track 7");
+        
+        auto theTrack = URL({File{filename}});
+        
+//        PlaylistComponent::trackTitles.push_back(theTrack);
         
         // This updates the playlist table content
         tableComponent.updateContent();
