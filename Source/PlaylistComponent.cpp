@@ -26,9 +26,19 @@ PlaylistComponent::PlaylistComponent()
     trackTitles.push_back("Track 6");
     
     
-    tableComponent.getHeader().addColumn("Track title", 1, 400); // Making 1 instead of 0 for juce 6
-    tableComponent.getHeader().addColumn("", 2, 200); // Making 1 instead of 0 for juce 6
-    tableComponent.getHeader().addColumn("", 3, 200); // One more column for the delete button
+    trackDurations.push_back("30");
+    trackDurations.push_back("50");
+    trackDurations.push_back("80");
+    trackDurations.push_back("100");
+    trackDurations.push_back("18");
+    trackDurations.push_back("30");
+    
+    
+    
+    tableComponent.getHeader().addColumn("Track Title", 1, 400); // Making 1 instead of 0 for juce 6
+    tableComponent.getHeader().addColumn("Duration(Sec)", 2, 200); // One More Column for the Duration
+    tableComponent.getHeader().addColumn("", 3, 100); // One more column for the delete button
+    tableComponent.getHeader().addColumn("", 4, 100); // One more column for the delete button
     
 //    tableComponent.getHeader().addColumn("Artist", 2, 400);
     tableComponent.setModel(this);
@@ -70,6 +80,7 @@ void PlaylistComponent::resized()
 int PlaylistComponent::getNumRows()
 {
     return trackTitles.size();
+//    return trackDurations.size();
 }
 
 void PlaylistComponent::paintRowBackground (Graphics & g, int rowNumber, int width, int Height, bool rowIsSelected)
@@ -86,13 +97,24 @@ void PlaylistComponent::paintRowBackground (Graphics & g, int rowNumber, int wid
 
 void PlaylistComponent::paintCell (Graphics & g, int rowNumber, int columnId, int width, int Height, bool rowIsSelected)
 {
-    g.drawText(trackTitles[rowNumber], 2, 0 , width -4, Height, Justification::centredLeft, true);
+    
+    // Splitting by columnIDs to add trackTitle and Duration
+    if (columnId == 1)
+    {
+        g.drawText(trackTitles[rowNumber], 2, 0 , width -4, Height, Justification::centredLeft, true);
+    }
+    
+    if (columnId == 2)
+    {
+        g.drawText(trackDurations[rowNumber], 2, 2 , width -4, Height, Justification::centredLeft, true);
+    }
+        
 }
 
 Component* PlaylistComponent::refreshComponentForCell (int rowNumber, int columnId, bool isRowSelected, Component *existingComponentToUpdate)
 {
     
-    if (columnId == 2)
+    if (columnId == 3)
     {
         if (existingComponentToUpdate == nullptr)
         {
@@ -109,7 +131,7 @@ Component* PlaylistComponent::refreshComponentForCell (int rowNumber, int column
         }
     }
 
-    if (columnId == 3)
+    if (columnId == 4)
     {
         if (existingComponentToUpdate == nullptr)
         {

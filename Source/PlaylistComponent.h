@@ -40,6 +40,7 @@ private:
     
     juce::TableListBox tableComponent;
     std::vector<std::string> trackTitles;
+    std::vector<std::string> trackDurations;
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (PlaylistComponent)
 };
