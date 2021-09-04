@@ -191,6 +191,9 @@ void PlaylistComponent::filesDropped(const juce::StringArray& files, int x, int 
         
         PlaylistComponent::trackTitles.push_back("Track 7");
         
+        // This updates the playlist table content
+        tableComponent.updateContent();
+        
         
 //        std::cout<<"tracktitles size " << trackTitles.size() << std::endl;
     }
