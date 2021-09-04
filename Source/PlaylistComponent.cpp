@@ -172,3 +172,15 @@ void PlaylistComponent::buttonClicked(Button* button)
         
     
 }
+
+bool PlaylistComponent::isInterestedInFileDrag(const juce::StringArray& files)
+{
+    std::cout << "Playlist::isInterestedInFileDrag" << std::endl;
+    return true;
+}
+
+void PlaylistComponent::filesDropped(const juce::StringArray& files, int x, int y)
+{
+    std::cout << "files dragged in playlist " << std::endl;
+    
+}

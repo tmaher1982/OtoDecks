@@ -19,7 +19,7 @@ using namespace juce;
 //==============================================================================
 /*
 */
-class PlaylistComponent  : public juce::Component, public juce::TableListBoxModel, public juce::Button::Listener
+class PlaylistComponent  : public juce::Component, public juce::TableListBoxModel, public juce::Button::Listener, public FileDragAndDropTarget
 {
 public:
     PlaylistComponent();
@@ -32,6 +32,11 @@ public:
     void paintRowBackground (Graphics &, int rowNumber, int width, int Height, bool rowIsSelected) override;
 
     void paintCell (Graphics &, int rowNumber, int columnId, int width, int Height, bool rowIsSelected) override;
+    
+    bool isInterestedInFileDrag(const juce::StringArray& files) override ;
+    void filesDropped(const juce::StringArray& files, int x, int y) override;
+    
+    
 private:
     
     Component* refreshComponentForCell (int rowNumber, int columnId, bool isRowSelected, Component *existingComponentToUpdate) override;
