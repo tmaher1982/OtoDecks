@@ -25,7 +25,6 @@ PlaylistComponent::PlaylistComponent()
     trackTitles.push_back("Track 5");
     trackTitles.push_back("Track 6");
     
-    
     trackDurations.push_back("30");
     trackDurations.push_back("50");
     trackDurations.push_back("80");
@@ -34,6 +33,7 @@ PlaylistComponent::PlaylistComponent()
     trackDurations.push_back("30");
     
     
+
     
     tableComponent.getHeader().addColumn("Track Title", 1, 400); // Making 1 instead of 0 for juce 6
     tableComponent.getHeader().addColumn("Duration(Sec)", 2, 200); // One More Column for the Duration
@@ -182,5 +182,18 @@ bool PlaylistComponent::isInterestedInFileDrag(const juce::StringArray& files)
 void PlaylistComponent::filesDropped(const juce::StringArray& files, int x, int y)
 {
     std::cout << "files dragged in playlist " << std::endl;
+    
+    // This gets filename(s) of on or more files dragged in the playlist
+    for (const juce::String& filename : files)
+    {
+        std::cout <<filename << std::endl;
+//        std::cout<<"tracktitles size " << trackTitles.size() << std::endl;
+        
+        PlaylistComponent::trackTitles.push_back("Track 7");
+        
+        
+//        std::cout<<"tracktitles size " << trackTitles.size() << std::endl;
+    }
+    //    trackTitles.emplace_back(files);
     
 }
