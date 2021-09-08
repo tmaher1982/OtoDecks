@@ -22,8 +22,14 @@ using namespace juce;
 class PlaylistComponent  : public juce::Component, public juce::TableListBoxModel, public juce::Button::Listener, public FileDragAndDropTarget
 {
 public:
-    PlaylistComponent();
+//    PlaylistComponent();
+    
+    PlaylistComponent(AudioFormatManager& _formatManager);
+    
     ~PlaylistComponent() override;
+    
+    
+    
 
     void paint (juce::Graphics&) override;
     void resized() override;
@@ -36,6 +42,8 @@ public:
     bool isInterestedInFileDrag(const juce::StringArray& files) override ;
     void filesDropped(const juce::StringArray& files, int x, int y) override;
     
+    void loadURL(URL audioURL);
+    
 //        std::vector<std::string> trackTitles;
     
 private:
@@ -47,6 +55,11 @@ private:
     juce::TableListBox tableComponent;
     std::vector<std::string> trackTitles;
     std::vector<std::string> trackDurations;
+    
+    AudioFormatManager& formatManager;
+    std::unique_ptr<AudioFormatReaderSource> readerSource;
+    AudioTransportSource transportSource;
+    ResamplingAudioSource resampleSource{&transportSource, false, 2};
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (PlaylistComponent)
 };
