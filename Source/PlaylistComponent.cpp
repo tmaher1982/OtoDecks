@@ -163,8 +163,9 @@ void PlaylistComponent::buttonClicked(Button* button)
         id2 = id2 - 20000;
         std::cout<< "PlaylistComponent::DELETE buttonClicked " << trackTitles[id2] << std::endl;
         
-        
+        PlaylistComponent::trackDurations.erase(trackDurations.begin() + id2);
         PlaylistComponent::trackTitles.erase(trackTitles.begin() + id2);
+        
         tableComponent.updateContent();
     }
     
@@ -198,6 +199,7 @@ void PlaylistComponent::filesDropped(const juce::StringArray& files, int x, int 
 //        std::cout<<"tracktitles size " << trackTitles.size() << std::endl;
         
         PlaylistComponent::trackTitles.push_back("Track 7");
+        PlaylistComponent::trackDurations.push_back("25 ");
         
         auto theTrack = URL({File{filename}});
         
