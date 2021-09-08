@@ -46,7 +46,7 @@ public:
     bool isInterestedInFileDrag(const juce::StringArray& files) override ;
     void filesDropped(const juce::StringArray& files, int x, int y) override;
     
-    
+    juce::String getTrackDuration(juce::File trackFile);
     
 //        std::vector<std::string> trackTitles;
     
@@ -57,8 +57,12 @@ private:
     void buttonClicked(juce::Button* button) override;
     
     juce::TableListBox tableComponent;
-    std::vector<std::string> trackTitles;
-    std::vector<std::string> trackDurations;
+//    std::vector<std::string> trackTitles;
+//    std::vector<std::string> trackDurations;
+    std::vector<juce::String> trackTitles;
+    std::vector<juce::String> trackDurations;
+    std::vector<juce::File>trackFiles;
+    
     
     AudioFormatManager& formatManager;
     std::unique_ptr<AudioFormatReaderSource> readerSource;

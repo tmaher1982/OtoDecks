@@ -18,21 +18,21 @@ PlaylistComponent::PlaylistComponent(AudioFormatManager& _formatManager) : forma
     // In your constructor, you should add any child components, and
     // initialise any special settings that your component needs.
     
-    trackTitles.push_back("Track 1");
-    trackTitles.push_back("Track 2");
-    trackTitles.push_back("Track 3");
-    trackTitles.push_back("Track 4");
-    trackTitles.push_back("Track 5");
-    trackTitles.push_back("Track 6");
-    
-    trackDurations.push_back("30");
-    trackDurations.push_back("50");
-    trackDurations.push_back("80");
-    trackDurations.push_back("100");
-    trackDurations.push_back("18");
-    trackDurations.push_back("30");
-    
-    
+//    trackTitles.push_back("Track 1");
+//    trackTitles.push_back("Track 2");
+//    trackTitles.push_back("Track 3");
+//    trackTitles.push_back("Track 4");
+//    trackTitles.push_back("Track 5");
+//    trackTitles.push_back("Track 6");
+//
+//    trackDurations.push_back("30");
+//    trackDurations.push_back("50");
+//    trackDurations.push_back("80");
+//    trackDurations.push_back("100");
+//    trackDurations.push_back("18");
+//    trackDurations.push_back("30");
+//
+//
 
     
     tableComponent.getHeader().addColumn("Track Title", 1, 400); // Making 1 instead of 0 for juce 6
@@ -191,18 +191,31 @@ void PlaylistComponent::filesDropped(const juce::StringArray& files, int x, int 
     std::cout << "files dragged in playlist " << std::endl;
     
     // This gets filename(s) of on or more files dragged in the playlist
-    for (const juce::String& filename : files)
+//    for (const juce::String& filename : files)
+    for (const juce::File filename : files)
     
     {
-        std::cout <<filename << std::endl;
+//        std::cout <<filename << std::endl;
+        auto theTrack = URL({File{filename}});
+        PlaylistComponent::trackFiles.push_back(filename.getFullPathName());
+        
+        juce::String title = theTrack.getFileName();
+        PlaylistComponent::trackTitles.push_back(title);
+//        juce::String duration = getTrackDuration(filename);
+//        PlaylistComponent::trackDurations.push_back(duration);
 
+        
+        
+        ////        std::cout < "title is " << title << std::endl;
+        
 //        std::cout<<"tracktitles size " << trackTitles.size() << std::endl;
         
-        PlaylistComponent::trackTitles.push_back("Track 7");
-        PlaylistComponent::trackDurations.push_back("25 ");
         
-        auto theTrack = URL({File{filename}});
-        
+//        PlaylistComponent::trackTitles.push_back("Track 7");
+//        PlaylistComponent::trackDurations.push_back("25 ");
+//
+//        auto theTrack = URL({File{filename}});
+//
 //        PlaylistComponent::playListLoadURL(URL{files[0]});
         
         // Correct one, but may not be needed
@@ -215,7 +228,7 @@ void PlaylistComponent::filesDropped(const juce::StringArray& files, int x, int 
         
         // This updates the playlist table content
         tableComponent.updateContent();
-        
+//        tabeleComponent.repaint();
         
 //        std::cout<<"tracktitles size " << trackTitles.size() << std::endl;
     }
@@ -238,4 +251,17 @@ void PlaylistComponent::playListLoadURL(URL listaudioURL)
            transportSource.setSource( newSource.get(), 0, nullptr, reader -> sampleRate);
            readerSource.reset (newSource.release());
         }
+}
+
+
+// This gets the track length
+juce::String getTrackDuration(juce::File trackFile)
+{
+    juce::AudioFormatManager formatManager;
+    formatManager.registerBasicFormats();
+    
+    juce::AudioFormatReader* formatReader = formatManager.createReaderFor(trackFile);
+    long trackLength = formatReader->lengthInSamples / formatReader->sampleRate;
+    
+    return std::to_string(trackLength / 60) + ":" + std::to_string(trackLength & 60);
 }
