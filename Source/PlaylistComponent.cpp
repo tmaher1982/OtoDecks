@@ -203,6 +203,14 @@ void PlaylistComponent::filesDropped(const juce::StringArray& files, int x, int 
         
         auto theTrack = URL({File{filename}});
         
+//        PlaylistComponent::playListLoadURL(URL{files[0]});
+        
+        // Correct one, but may not be needed
+        
+        PlaylistComponent::playListLoadURL(URL{filename});
+        
+//        MainComponent::player1::loadURL(filename);
+        
 //        PlaylistComponent::trackTitles.push_back(theTrack);
         
         // This updates the playlist table content
@@ -213,4 +221,21 @@ void PlaylistComponent::filesDropped(const juce::StringArray& files, int x, int 
     }
     //    trackTitles.emplace_back(files);
     
+}
+
+
+
+
+// This may not be needed here 
+void PlaylistComponent::playListLoadURL(URL listaudioURL)
+{
+    std::cout << " I'm called "<< std::endl;
+    
+    auto* reader = formatManager.createReaderFor(listaudioURL.createInputStream(false));
+       if (reader != nullptr) // good file!
+        {
+           std::unique_ptr<juce::AudioFormatReaderSource> newSource (new juce::AudioFormatReaderSource (reader, true));
+           transportSource.setSource( newSource.get(), 0, nullptr, reader -> sampleRate);
+           readerSource.reset (newSource.release());
+        }
 }

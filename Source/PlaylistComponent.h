@@ -13,6 +13,8 @@
 #include <JuceHeader.h>
 #include <vector>
 #include <string>
+#include "DJAudioPlayer.h"
+
 
 using namespace juce;
 
@@ -29,8 +31,10 @@ public:
     ~PlaylistComponent() override;
     
     
-    
+    // This may not be needed
+    void playListLoadURL(URL listaudioURL);
 
+    
     void paint (juce::Graphics&) override;
     void resized() override;
     int getNumRows() override;
@@ -42,7 +46,7 @@ public:
     bool isInterestedInFileDrag(const juce::StringArray& files) override ;
     void filesDropped(const juce::StringArray& files, int x, int y) override;
     
-    void loadURL(URL audioURL);
+    
     
 //        std::vector<std::string> trackTitles;
     
