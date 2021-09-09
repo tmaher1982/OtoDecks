@@ -165,7 +165,8 @@ void PlaylistComponent::buttonClicked(Button* button)
         
         PlaylistComponent::trackDurations.erase(trackDurations.begin() + id2);
         PlaylistComponent::trackTitles.erase(trackTitles.begin() + id2);
-        
+        PlaylistComponent::trackFiles.erase(trackFiles.begin() + id2);
+    
         tableComponent.updateContent();
     }
     
@@ -176,8 +177,12 @@ void PlaylistComponent::buttonClicked(Button* button)
         id = id - 10000;
         std::cout<< "PlaylistComponent::Play buttonClicked " << trackTitles[id] << std::endl;
 //        PlaylistComponent::playListLoadURL(trackFiles[id]);
-        player1->loadURL(juce::URL{trackFiles[id]});
+        
+        
+//        player1->loadURL(juce::URL{trackFiles[id]});
 //        player1->loadURL(trackFiles[id]);
+        
+        
     }
         
     
@@ -203,6 +208,7 @@ void PlaylistComponent::filesDropped(const juce::StringArray& files, int x, int 
 //        juce::URL theTrack = URL({File{filename}});
         auto theTrack = URL({File{filename}});
         PlaylistComponent::trackFiles.push_back(filename.getFullPathName());
+        
 //        PlaylistComponent::trackFiles.push_back(filename);
 //                PlaylistComponent::trackFiles.push_back(theTrack);
 //        PlaylistComponent::playListLoadURL(filename);
