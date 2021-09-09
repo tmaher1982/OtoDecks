@@ -195,12 +195,13 @@ void PlaylistComponent::filesDropped(const juce::StringArray& files, int x, int 
     for (const juce::File filename : files)
     
     {
+        
 //        std::cout <<filename << std::endl;
         auto theTrack = URL({File{filename}});
         PlaylistComponent::trackFiles.push_back(filename.getFullPathName());
         
         juce::String title = theTrack.getFileName();
-        PlaylistComponent::trackTitles.push_back(title);
+       // PlaylistComponent::trackTitles.push_back(title);
 //        juce::String duration = getTrackDuration(filename);
 //        PlaylistComponent::trackDurations.push_back(duration);
 
@@ -218,6 +219,7 @@ void PlaylistComponent::filesDropped(const juce::StringArray& files, int x, int 
 //
 //        PlaylistComponent::playListLoadURL(URL{files[0]});
         
+        PlaylistComponent::getTrackDuration(filename);
         // Correct one, but may not be needed
         
         PlaylistComponent::playListLoadURL(URL{filename});
@@ -255,7 +257,8 @@ void PlaylistComponent::playListLoadURL(URL listaudioURL)
 
 
 // This gets the track length
-juce::String getTrackDuration(juce::File trackFile)
+juce::String PlaylistComponent::getTrackDuration(juce::File trackFile)
+
 {
     juce::AudioFormatManager formatManager;
     formatManager.registerBasicFormats();
@@ -263,5 +266,10 @@ juce::String getTrackDuration(juce::File trackFile)
     juce::AudioFormatReader* formatReader = formatManager.createReaderFor(trackFile);
     long trackLength = formatReader->lengthInSamples / formatReader->sampleRate;
     
-    return std::to_string(trackLength / 60) + ":" + std::to_string(trackLength & 60);
+    
+    std::string tlength = std::to_string(trackLength / 60) + ":" + std::to_string(trackLength & 60);
+    std::cout << "Track length is " << tlength << std::endl;
+//    return std::to_string(trackLength / 60) + ":" + std::to_string(trackLength & 60);
+    return tlength;
+    
 }
