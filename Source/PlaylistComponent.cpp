@@ -200,11 +200,8 @@ void PlaylistComponent::filesDropped(const juce::StringArray& files, int x, int 
         auto theTrack = URL({File{filename}});
         PlaylistComponent::trackFiles.push_back(filename.getFullPathName());
         
-        juce::String title = theTrack.getFileName();
-       // PlaylistComponent::trackTitles.push_back(title);
-//        juce::String duration = getTrackDuration(filename);
-//        PlaylistComponent::trackDurations.push_back(duration);
-
+        
+//
         
         
         ////        std::cout < "title is " << title << std::endl;
@@ -219,7 +216,19 @@ void PlaylistComponent::filesDropped(const juce::StringArray& files, int x, int 
 //
 //        PlaylistComponent::playListLoadURL(URL{files[0]});
         
-        PlaylistComponent::getTrackDuration(filename);
+        
+        
+        
+//        PlaylistComponent::getTrackDuration(filename);
+        //This adds track name to the playlist
+        juce::String title = theTrack.getFileName();
+        PlaylistComponent::trackTitles.push_back(title);
+        
+        // This adds track duration to the playlist
+        juce::String duration = getTrackDuration(filename);
+        PlaylistComponent::trackDurations.push_back(duration);
+
+        
         // Correct one, but may not be needed
         
         PlaylistComponent::playListLoadURL(URL{filename});
