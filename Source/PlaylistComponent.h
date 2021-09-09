@@ -26,7 +26,7 @@ class PlaylistComponent  : public juce::Component, public juce::TableListBoxMode
 public:
 //    PlaylistComponent();
     
-    PlaylistComponent(AudioFormatManager& _formatManager);
+    PlaylistComponent(DJAudioPlayer* player1, AudioFormatManager& _formatManager );
     
     ~PlaylistComponent() override;
     
@@ -62,12 +62,16 @@ private:
     std::vector<juce::String> trackTitles;
     std::vector<juce::String> trackDurations;
     std::vector<juce::File>trackFiles;
+//        std::vector<juce::URL>trackFiles;
+    
     
     
     AudioFormatManager& formatManager;
     std::unique_ptr<AudioFormatReaderSource> readerSource;
     AudioTransportSource transportSource;
     ResamplingAudioSource resampleSource{&transportSource, false, 2};
+    
+    DJAudioPlayer* player1;
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (PlaylistComponent)
 };

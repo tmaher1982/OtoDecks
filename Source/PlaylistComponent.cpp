@@ -13,7 +13,7 @@
 
 
 //==============================================================================
-PlaylistComponent::PlaylistComponent(AudioFormatManager& _formatManager) : formatManager(_formatManager)
+PlaylistComponent::PlaylistComponent(DJAudioPlayer* player1, AudioFormatManager& _formatManager) : formatManager(_formatManager)
 {
     // In your constructor, you should add any child components, and
     // initialise any special settings that your component needs.
@@ -175,6 +175,9 @@ void PlaylistComponent::buttonClicked(Button* button)
         // Gives back the track ID to play
         id = id - 10000;
         std::cout<< "PlaylistComponent::Play buttonClicked " << trackTitles[id] << std::endl;
+//        PlaylistComponent::playListLoadURL(trackFiles[id]);
+        player1->loadURL(juce::URL{trackFiles[id]});
+//        player1->loadURL(trackFiles[id]);
     }
         
     
@@ -197,9 +200,12 @@ void PlaylistComponent::filesDropped(const juce::StringArray& files, int x, int 
     {
         
 //        std::cout <<filename << std::endl;
+//        juce::URL theTrack = URL({File{filename}});
         auto theTrack = URL({File{filename}});
         PlaylistComponent::trackFiles.push_back(filename.getFullPathName());
-        
+//        PlaylistComponent::trackFiles.push_back(filename);
+//                PlaylistComponent::trackFiles.push_back(theTrack);
+//        PlaylistComponent::playListLoadURL(filename);
         
 //
         
@@ -231,7 +237,7 @@ void PlaylistComponent::filesDropped(const juce::StringArray& files, int x, int 
         
         // Correct one, but may not be needed
         
-        PlaylistComponent::playListLoadURL(URL{filename});
+//        PlaylistComponent::playListLoadURL(URL{filename});
         
 //        MainComponent::player1::loadURL(filename);
         
