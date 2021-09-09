@@ -179,7 +179,7 @@ void PlaylistComponent::buttonClicked(Button* button)
 //        PlaylistComponent::playListLoadURL(trackFiles[id]);
         
         
-//        player1->loadURL(juce::URL{trackFiles[id]});
+        player1->loadURL(juce::URL{trackFiles[id]});
 //        player1->loadURL(trackFiles[id]);
         
         
