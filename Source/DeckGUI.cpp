@@ -63,8 +63,9 @@ void DeckGUI::paint (juce::Graphics& g)
 
     g.setColour (juce::Colours::white);
     g.setFont (14.0f);
-    g.drawText ("Speed - Pos", getLocalBounds(),
+    g.drawText ("Relative Position", getLocalBounds(),
                 juce::Justification::centred, true);   // draw some placeholder text
+    
     
 //    playButton.setImages(false, false, true, playImage, 1.0f, {}, playImage, 1.0f, {}, playImage, 1.0f, {});
 }
@@ -93,11 +94,14 @@ void DeckGUI::resized()
     volSlider.setRange(0.0f, 1.0f, 0.01f);
     volSlider.setColour(Slider::ColourIds::thumbColourId, Colours::darkorange);
     
-    // Changing the Look and Feel for speed Slider and Pos Slider
+    // Changing the Look and Feel for speed Slider
     
     speedSlider.setBounds(0, rowH * 3, getWidth(), rowH);
-    
+    speedSlider.setRange(0.0f, 1.0f, 0.01f);
+    speedSlider.setSliderStyle (Slider::Slider::RotaryHorizontalDrag);
     speedSlider.setColour(Slider::ColourIds::thumbColourId, Colours::darkorange);
+    
+    // Changing the Look and Feel for speed Slider and Pos Slider
     
     posSlider.setBounds(0,rowH * 4, getWidth(),rowH);
     posSlider.setColour(Slider::ColourIds::thumbColourId, Colours::darkorange);
