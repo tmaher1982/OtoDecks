@@ -40,10 +40,15 @@ PlaylistComponent::PlaylistComponent(DJAudioPlayer* player1, AudioFormatManager&
     tableComponent.getHeader().addColumn("", 3, 100); // One more column for the delete button
     tableComponent.getHeader().addColumn("", 4, 100); // One more column for the delete button
     
+    
+    
 //    tableComponent.getHeader().addColumn("Artist", 2, 400);
     tableComponent.setModel(this);
     
     addAndMakeVisible(tableComponent);
+    
+    addAndMakeVisible(playlistSearch);
+//    playlistSearch.addListener(this);
 }
 
 PlaylistComponent::~PlaylistComponent()
@@ -74,7 +79,11 @@ void PlaylistComponent::resized()
 {
     // This method is where you should set the bounds of any child
     // components that your component contains..
-    tableComponent.setBounds(0,0,getWidth(), getHeight());
+    double rowH = getHeight() ;
+    playlistSearch.setBounds(0, 0, getWidth(), rowH * 0.1);
+    playlistSearch.setColour(TextEditor::ColourIds::textColourId, Colours::darkorange);
+    playlistSearch.setText("Search Here for tracks ");
+    tableComponent.setBounds(0,rowH * 0.1,getWidth(), getHeight());
 }
 
 int PlaylistComponent::getNumRows()
