@@ -120,7 +120,7 @@ Component* PlaylistComponent::refreshComponentForCell (int rowNumber, int column
         {
 
             // Gave play button a prefix ID of 10000
-            TextButton* btn = new TextButton{"PLAY"};
+            TextButton* btn = new TextButton{"PLAY on Deck1"};
             btn->setColour(0x1000100, juce::Colours::green);
             String id{std::to_string(rowNumber + 10000)};
             btn->setComponentID(id);
