@@ -33,7 +33,7 @@ PlaylistComponent::PlaylistComponent(DJAudioPlayer* player1, AudioFormatManager&
 //    trackDurations.push_back("30");
 //
 //
-
+    
     
     tableComponent.getHeader().addColumn("Track Title", 1, 400); // Making 1 instead of 0 for juce 6
     tableComponent.getHeader().addColumn("Duration(Sec)", 2, 200); // One More Column for the Duration
@@ -254,6 +254,15 @@ void PlaylistComponent::filesDropped(const juce::StringArray& files, int x, int 
 //        tabeleComponent.repaint();
         
 //        std::cout<<"tracktitles size " << trackTitles.size() << std::endl;
+        
+        
+        // Update the method signature and details with the right parameters I have here
+//        PlaylistComponent::ManagePlaylist(juce::File filename)
+        
+        
+        
+        
+        
     }
     //    trackTitles.emplace_back(files);
     
@@ -292,5 +301,23 @@ juce::String PlaylistComponent::getTrackDuration(juce::File trackFile)
     std::cout << "Track length is " << tlength << std::endl;
 //    return std::to_string(trackLength / 60) + ":" + std::to_string(trackLength & 60);
     return tlength;
+    
+}
+
+
+// This adds files added to teh playlist by drag and drop to playlist.xml
+void PlaylistComponent::ManagePlaylist(juce::File filename)
+{
+    // Add details to the XML file
+//    juce::XmlElement* playlistXmlElement = new juce::XmlElement();
+//    juce::XmlElement* track = playlistXmlElement.createNewChildElement("Track");
+//    juce::XmlElement* name = track->createNewChildElement("name");
+//    name->addTextElement(juce::File(filename).getFileNameWithoutExtension());
+//    juce::XmlElement* path = track->createNewChildElement("path");
+//    path->addTextElement(juce::File(filename).getFullPathName());
+//
+//    playlistXmlElement.writeTo(juce::File{"/Users/Tamer/tracks/playlist.xml"});
+//    playlistXmlElement.writeTo(juce::File{BinaryData::Playlist_xml});
+    
     
 }

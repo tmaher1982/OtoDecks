@@ -47,6 +47,8 @@ public:
     void filesDropped(const juce::StringArray& files, int x, int y) override;
     
     juce::String getTrackDuration(juce::File trackFile);
+    void ManagePlaylist(juce::File filename);
+    
     
 //        std::vector<std::string> trackTitles;
     
@@ -64,8 +66,13 @@ private:
     std::vector<juce::File>trackFiles;
 //        std::vector<juce::URL>trackFiles;
     
-    
-    
+//    juce::XmlElement playlistXmlElement;
+//    juce::XmlElement track;
+//    juce::XmlElement name;
+//    juce::XmlElement path;
+//
+//    juce::XmlDocument playlistXMLDoc;
+//    
     AudioFormatManager& formatManager;
     std::unique_ptr<AudioFormatReaderSource> readerSource;
     AudioTransportSource transportSource;
