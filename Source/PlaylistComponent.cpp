@@ -13,7 +13,7 @@
 
 
 //==============================================================================
-PlaylistComponent::PlaylistComponent(DJAudioPlayer* player1, AudioFormatManager& _formatManager) : formatManager(_formatManager)
+PlaylistComponent::PlaylistComponent(DJAudioPlayer* deckPlayer1, AudioFormatManager& _formatManager) : formatManager(_formatManager)
 {
     // In your constructor, you should add any child components, and
     // initialise any special settings that your component needs.
@@ -34,11 +34,15 @@ PlaylistComponent::PlaylistComponent(DJAudioPlayer* player1, AudioFormatManager&
 //
 //
     
+    player1 = deckPlayer1;
     
     tableComponent.getHeader().addColumn("Track Title", 1, 400); // Making 1 instead of 0 for juce 6
     tableComponent.getHeader().addColumn("Duration(Sec)", 2, 200); // One More Column for the Duration
     tableComponent.getHeader().addColumn("", 3, 100); // One more column for the delete button
     tableComponent.getHeader().addColumn("", 4, 100); // One more column for the delete button
+    
+    
+    
     
     
     
@@ -49,6 +53,7 @@ PlaylistComponent::PlaylistComponent(DJAudioPlayer* player1, AudioFormatManager&
     
     addAndMakeVisible(playlistSearch);
 //    playlistSearch.addListener(this);
+    
 }
 
 PlaylistComponent::~PlaylistComponent()
@@ -189,9 +194,11 @@ void PlaylistComponent::buttonClicked(Button* button)
         
         
         player1->loadURL(juce::URL{trackFiles[id]});
+        player1->start();
 //        player1->loadURL(trackFiles[id]);
         
-        
+//        juce::URL audioURL{"file:////Users/Tamer/tracks/aon_inspired.mp3"};
+//        player1->loadURL(audioURL);
     }
         
     
