@@ -21,7 +21,7 @@ using namespace juce;
 //==============================================================================
 /*
 */
-class PlaylistComponent  : public juce::Component, public juce::TableListBoxModel, public juce::Button::Listener, public FileDragAndDropTarget
+class PlaylistComponent  : public juce::Component, public juce::TableListBoxModel, public juce::Button::Listener, public FileDragAndDropTarget, public juce::TextEditor::Listener
 {
 public:
 //    PlaylistComponent();

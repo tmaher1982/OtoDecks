@@ -52,7 +52,7 @@ PlaylistComponent::PlaylistComponent(DJAudioPlayer* deckPlayer1, AudioFormatMana
     addAndMakeVisible(tableComponent);
     
     addAndMakeVisible(playlistSearch);
-//    playlistSearch.addListener(this);
+    playlistSearch.addListener(this);
     
 }
 
