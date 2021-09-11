@@ -41,18 +41,14 @@ PlaylistComponent::PlaylistComponent( DJAudioPlayer* deckPlayer1, AudioFormatMan
     tableComponent.getHeader().addColumn("", 3, 100); // One more column for the delete button
     tableComponent.getHeader().addColumn("", 4, 100); // One more column for the delete button
     
-    
-//    juce::XmlElement _playlistTrack;
-    
-    
-    
-//    tableComponent.getHeader().addColumn("Artist", 2, 400);
     tableComponent.setModel(this);
     
     addAndMakeVisible(tableComponent);
     
     addAndMakeVisible(playlistSearch);
     playlistSearch.addListener(this);
+    
+    //    juce::XmlElement _playlistTrack;
     
 }
 
@@ -94,7 +90,6 @@ void PlaylistComponent::resized()
 int PlaylistComponent::getNumRows()
 {
     return trackTitles.size();
-//    return trackDurations.size();
 }
 
 void PlaylistComponent::paintRowBackground (Graphics & g, int rowNumber, int width, int Height, bool rowIsSelected)
@@ -141,7 +136,6 @@ Component* PlaylistComponent::refreshComponentForCell (int rowNumber, int column
             
             btn ->addListener(this);
             existingComponentToUpdate = btn;
-            
         }
     }
 
@@ -157,8 +151,6 @@ Component* PlaylistComponent::refreshComponentForCell (int rowNumber, int column
             
             btn2 ->addListener(this);
             existingComponentToUpdate = btn2;
-            
-            
         }
     }
     return existingComponentToUpdate;
@@ -190,20 +182,10 @@ void PlaylistComponent::buttonClicked(Button* button)
         // Gives back the track ID to play
         id = id - 10000;
         std::cout<< "PlaylistComponent::Play buttonClicked " << trackTitles[id] << std::endl;
-//        PlaylistComponent::playListLoadURL(trackFiles[id]);
-        
-        
+
         player1->loadURL(juce::URL{trackFiles[id]});
         player1->start();
-//        player1->loadURL(trackFiles[id]);
-        
-//        juce::URL audioURL{"file:////Users/Tamer/tracks/aon_inspired.mp3"};
-//        player1->loadURL(audioURL);
-        
-        
     }
-        
-    
 }
 
 bool PlaylistComponent::isInterestedInFileDrag(const juce::StringArray& files)
@@ -217,16 +199,30 @@ void PlaylistComponent::filesDropped(const juce::StringArray& files, int x, int 
     std::cout << "files dragged in playlist " << std::endl;
     
     // This gets filename(s) of on or more files dragged in the playlist
-//    for (const juce::String& filename : files)
     for (const juce::File filename : files)
     // foreach filename in files
     {
         
-//        std::cout <<filename << std::endl;
-//        juce::URL theTrack = URL({File{filename}});
-        auto theTrack = URL({File{filename}});
-        PlaylistComponent::trackFiles.push_back(filename.getFullPathName());
+
         
+        PlaylistComponent::trackFiles.push_back(filename.getFullPathName());
+
+        
+        //This adds track name to the playlist
+        auto theTrack = URL({File{filename}});
+        juce::String title = theTrack.getFileName();
+        PlaylistComponent::trackTitles.push_back(title);
+        
+        // This adds track duration to the playlist
+        juce::String duration = getTrackDuration(filename);
+        PlaylistComponent::trackDurations.push_back(duration);
+
+        // This updates the playlist table content
+        tableComponent.updateContent();
+        
+        
+        //        std::cout <<filename << std::endl;
+        //        juce::URL theTrack = URL({File{filename}});
 //        PlaylistComponent::trackFiles.push_back(filename);
 //                PlaylistComponent::trackFiles.push_back(theTrack);
 //        PlaylistComponent::playListLoadURL(filename);
@@ -239,25 +235,13 @@ void PlaylistComponent::filesDropped(const juce::StringArray& files, int x, int 
 //        std::cout<<"tracktitles size " << trackTitles.size() << std::endl;
         
         
-//        PlaylistComponent::trackTitles.push_back("Track 7");
-//        PlaylistComponent::trackDurations.push_back("25 ");
-//
-//        auto theTrack = URL({File{filename}});
-//
 //        PlaylistComponent::playListLoadURL(URL{files[0]});
         
         
         
         
 //        PlaylistComponent::getTrackDuration(filename);
-        //This adds track name to the playlist
-        juce::String title = theTrack.getFileName();
-        PlaylistComponent::trackTitles.push_back(title);
         
-        // This adds track duration to the playlist
-        juce::String duration = getTrackDuration(filename);
-        PlaylistComponent::trackDurations.push_back(duration);
-
         
         // Correct one, but may not be needed
         
@@ -267,8 +251,7 @@ void PlaylistComponent::filesDropped(const juce::StringArray& files, int x, int 
         
 //        PlaylistComponent::trackTitles.push_back(theTrack);
         
-        // This updates the playlist table content
-        tableComponent.updateContent();
+        
 //        tabeleComponent.repaint();
         
 //        std::cout<<"tracktitles size " << trackTitles.size() << std::endl;
@@ -298,12 +281,7 @@ void PlaylistComponent::filesDropped(const juce::StringArray& files, int x, int 
 //        
         
     }
-    //    trackTitles.emplace_back(files);
-    
 }
-
-
-
 
 // This may not be needed here 
 void PlaylistComponent::playListLoadURL(URL listaudioURL)
@@ -330,12 +308,10 @@ juce::String PlaylistComponent::getTrackDuration(juce::File trackFile)
     juce::AudioFormatReader* formatReader = formatManager.createReaderFor(trackFile);
     long trackLength = formatReader->lengthInSamples / formatReader->sampleRate;
     
-    
     std::string tlength = std::to_string(trackLength / 60) + ":" + std::to_string(trackLength % 60);
     std::cout << "Track length is " << tlength << std::endl;
-//    return std::to_string(trackLength / 60) + ":" + std::to_string(trackLength & 60);
+
     return tlength;
-    
 }
 
 //void playlistSearchReturnKeyPressed(juce::TextEditor&)
