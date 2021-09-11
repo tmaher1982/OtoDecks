@@ -23,8 +23,6 @@ using namespace juce;
 */
 class PlaylistComponent  : public juce::Component, public juce::TableListBoxModel, public juce::Button::Listener, public FileDragAndDropTarget, public juce::TextEditor::Listener
 
-//, public juce::XmlElement
-
 {
 public:
 //    PlaylistComponent();
@@ -32,11 +30,6 @@ public:
     PlaylistComponent(DJAudioPlayer* player1, AudioFormatManager& _formatManager );
     
     ~PlaylistComponent() override;
-    
-    
-    // This may not be needed
-    void playListLoadURL(URL listaudioURL);
-
     
     void paint (juce::Graphics&) override;
     void resized() override;
