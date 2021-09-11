@@ -37,7 +37,7 @@ PlaylistComponent::PlaylistComponent(DJAudioPlayer* deckPlayer1, AudioFormatMana
     player1 = deckPlayer1;
     
     tableComponent.getHeader().addColumn("Track Title", 1, 400); // Making 1 instead of 0 for juce 6
-    tableComponent.getHeader().addColumn("Duration(Sec)", 2, 200); // One More Column for the Duration
+    tableComponent.getHeader().addColumn("Duration(min:sec)", 2, 200); // One More Column for the Duration
     tableComponent.getHeader().addColumn("", 3, 100); // One more column for the delete button
     tableComponent.getHeader().addColumn("", 4, 100); // One more column for the delete button
     
@@ -199,6 +199,8 @@ void PlaylistComponent::buttonClicked(Button* button)
         
 //        juce::URL audioURL{"file:////Users/Tamer/tracks/aon_inspired.mp3"};
 //        player1->loadURL(audioURL);
+        
+        
     }
         
     
@@ -217,7 +219,7 @@ void PlaylistComponent::filesDropped(const juce::StringArray& files, int x, int 
     // This gets filename(s) of on or more files dragged in the playlist
 //    for (const juce::String& filename : files)
     for (const juce::File filename : files)
-    
+    // foreach filename in files
     {
         
 //        std::cout <<filename << std::endl;
@@ -313,7 +315,7 @@ juce::String PlaylistComponent::getTrackDuration(juce::File trackFile)
     long trackLength = formatReader->lengthInSamples / formatReader->sampleRate;
     
     
-    std::string tlength = std::to_string(trackLength / 60) + ":" + std::to_string(trackLength & 60);
+    std::string tlength = std::to_string(trackLength / 60) + ":" + std::to_string(trackLength % 60);
     std::cout << "Track length is " << tlength << std::endl;
 //    return std::to_string(trackLength / 60) + ":" + std::to_string(trackLength & 60);
     return tlength;
