@@ -97,7 +97,7 @@ void DeckGUI::resized()
     // Changing the Look and Feel for speed Slider
     
     speedSlider.setBounds(0, rowH * 3, getWidth(), rowH);
-    speedSlider.setRange(0.0f, 1.0f, 0.01f);
+    speedSlider.setRange(0.0f, 100.0f, 0.01f);
     speedSlider.setSliderStyle (Slider::Slider::RotaryHorizontalDrag);
     speedSlider.setColour(Slider::ColourIds::thumbColourId, Colours::darkorange);
     

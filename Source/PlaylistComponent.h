@@ -52,7 +52,9 @@ public:
     juce::String getTrackDuration(juce::File trackFile);
     void ManagePlaylist(juce::File filename);
     
+   // void playlistSearchReturnKeyPressed(juce::TextEditor&) override;
     
+//    void clearPlaylist();
 //        std::vector<std::string> trackTitles;
     
 private:

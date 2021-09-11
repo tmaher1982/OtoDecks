@@ -338,6 +338,18 @@ juce::String PlaylistComponent::getTrackDuration(juce::File trackFile)
     
 }
 
+//void playlistSearchReturnKeyPressed(juce::TextEditor&)
+//{
+//    clearPlaylist()
+//
+//    juce::String playlistTitle = playlistSearch.getText();
+//
+//}
+
+//void clearPlaylist()
+//{
+    
+//}
 
 // This adds files added to teh playlist by drag and drop to playlist.xml
 void PlaylistComponent::ManagePlaylist(juce::File filename)
