@@ -50,7 +50,6 @@ public:
     
     void ManagePlaylist(juce::File filename);
     
-//    void playlistSearchReturnKeyPressed(juce::TextEditor&);
     void textEditorReturnKeyPressed(juce::TextEditor&)override;
 //    void clearPlaylist();
 //        std::vector<std::string> trackTitles;

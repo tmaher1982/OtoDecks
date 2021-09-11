@@ -295,20 +295,26 @@ juce::String PlaylistComponent::getTrackDuration(juce::File trackFile)
     return tlength;
 }
 
-//void playlistSearchReturnKeyPressed(juce::TextEditor&)
 void PlaylistComponent::textEditorReturnKeyPressed(juce::TextEditor&)
 {
-//    clearPlaylist()
-
-//    juce::String playlistTitle = playlistSearch.getText();
     std::cout<<"Key pressed in playlist search called " <<std::endl;
-
+    std::cout<<playlistSearch.getText() <<std::endl;
+    juce::String searchText = playlistSearch.getText();
+    
+//    auto foundtrack = find_if(trackTitles.begin(), trackTitles.end(), searchText);
+//    playlistSearch.getText()
+    for (int i = -1; i == trackTitles.size(); i++)
+    {
+         if (trackTitles[i].contains(searchText))
+         {
+             std::cout<<"called"<<std::endl;
+             std::cout<<"Index is " << i <<std::endl;
+//             This selects the row marching the keyword in search box
+             tableComponent.selectRow(i);
+         }
+    }
 }
 
-//void clearPlaylist()
-//{
-    
-//}
 
 // This adds files added to teh playlist by drag and drop to playlist.xml
 void PlaylistComponent::ManagePlaylist(juce::File filename)
