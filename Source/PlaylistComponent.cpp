@@ -38,7 +38,7 @@ PlaylistComponent::PlaylistComponent( DJAudioPlayer* deckPlayer1, AudioFormatMan
     
     tableComponent.getHeader().addColumn("Track Title", 1, 400); // Making 1 instead of 0 for juce 6
     tableComponent.getHeader().addColumn("Duration(min:sec)", 2, 200); // One More Column for the Duration
-    tableComponent.getHeader().addColumn("", 3, 100); // One more column for the delete button
+    tableComponent.getHeader().addColumn("", 3, 100); // One more column for the play button
     tableComponent.getHeader().addColumn("", 4, 100); // One more column for the delete button
     
     tableComponent.setModel(this);
@@ -47,9 +47,7 @@ PlaylistComponent::PlaylistComponent( DJAudioPlayer* deckPlayer1, AudioFormatMan
     
     addAndMakeVisible(playlistSearch);
     playlistSearch.addListener(this);
-    
-    //    juce::XmlElement _playlistTrack;
-    
+
 }
 
 PlaylistComponent::~PlaylistComponent()
@@ -72,8 +70,7 @@ void PlaylistComponent::paint (juce::Graphics& g)
 
     g.setColour (juce::Colours::white);
     g.setFont (14.0f);
-    g.drawText ("PlaylistComponent", getLocalBounds(),
-                juce::Justification::centred, true);   // draw some placeholder text
+    g.drawText ("PlaylistComponent", getLocalBounds(), juce::Justification::centred, true);   // draw some placeholder text
 }
 
 void PlaylistComponent::resized()
@@ -158,7 +155,6 @@ Component* PlaylistComponent::refreshComponentForCell (int rowNumber, int column
 
 void PlaylistComponent::buttonClicked(Button* button)
 {
-   
     int id = std::stoi(button->getComponentID().toStdString());
     int id2 = std::stoi(button->getComponentID().toStdString());
     
@@ -202,9 +198,7 @@ void PlaylistComponent::filesDropped(const juce::StringArray& files, int x, int 
     for (const juce::File filename : files)
     // foreach filename in files
     {
-        
-
-        
+        // This gets the file path that
         PlaylistComponent::trackFiles.push_back(filename.getFullPathName());
 
         
@@ -219,6 +213,8 @@ void PlaylistComponent::filesDropped(const juce::StringArray& files, int x, int 
 
         // This updates the playlist table content
         tableComponent.updateContent();
+        
+        //        ****************************************************************************
         
         
         //        std::cout <<filename << std::endl;
@@ -278,14 +274,14 @@ void PlaylistComponent::filesDropped(const juce::StringArray& files, int x, int 
 //        playlistTrack.addChildElement(trackDuration);
 //        
 //        playlistTrack.writeTo(juce::File{BinaryData::Playlist_xml});
-//        
+//
+        //        ****************************************************************************
         
     }
 }
 
 // This gets the track length
 juce::String PlaylistComponent::getTrackDuration(juce::File trackFile)
-
 {
     juce::AudioFormatManager formatManager;
     formatManager.registerBasicFormats();
@@ -300,12 +296,14 @@ juce::String PlaylistComponent::getTrackDuration(juce::File trackFile)
 }
 
 //void playlistSearchReturnKeyPressed(juce::TextEditor&)
-//{
+void PlaylistComponent::textEditorReturnKeyPressed(juce::TextEditor&)
+{
 //    clearPlaylist()
-//
+
 //    juce::String playlistTitle = playlistSearch.getText();
-//
-//}
+    std::cout<<"Key pressed in playlist search called " <<std::endl;
+
+}
 
 //void clearPlaylist()
 //{

@@ -43,10 +43,15 @@ public:
     void filesDropped(const juce::StringArray& files, int x, int y) override;
     
     juce::String getTrackDuration(juce::File trackFile);
+    
+    
+    
+    
+    
     void ManagePlaylist(juce::File filename);
     
-   // void playlistSearchReturnKeyPressed(juce::TextEditor&) override;
-    
+//    void playlistSearchReturnKeyPressed(juce::TextEditor&);
+    void textEditorReturnKeyPressed(juce::TextEditor&)override;
 //    void clearPlaylist();
 //        std::vector<std::string> trackTitles;
     
@@ -57,12 +62,10 @@ private:
     void buttonClicked(juce::Button* button) override;
     
     juce::TableListBox tableComponent;
-//    std::vector<std::string> trackTitles;
-//    std::vector<std::string> trackDurations;
+
     std::vector<juce::String> trackTitles;
     std::vector<juce::String> trackDurations;
     std::vector<juce::File>trackFiles;
-//        std::vector<juce::URL>trackFiles;
     
 //    std::unique_ptr <XmlElement> playlistXmlElement;
 //    std::unique_ptr <XmlElement> track;
