@@ -13,7 +13,7 @@
 
 
 //==============================================================================
-PlaylistComponent::PlaylistComponent(DJAudioPlayer* deckPlayer1, AudioFormatManager& _formatManager) : formatManager(_formatManager)
+PlaylistComponent::PlaylistComponent( DJAudioPlayer* deckPlayer1, AudioFormatManager& _formatManager) : formatManager(_formatManager)
 {
     // In your constructor, you should add any child components, and
     // initialise any special settings that your component needs.
@@ -42,7 +42,7 @@ PlaylistComponent::PlaylistComponent(DJAudioPlayer* deckPlayer1, AudioFormatMana
     tableComponent.getHeader().addColumn("", 4, 100); // One more column for the delete button
     
     
-    
+//    juce::XmlElement _playlistTrack;
     
     
     
@@ -278,8 +278,24 @@ void PlaylistComponent::filesDropped(const juce::StringArray& files, int x, int 
 //        PlaylistComponent::ManagePlaylist(juce::File filename)
         
         
-        
-        
+//            XmlElement* playlistXmlElement = new XmlElement();
+//            XmlElement* track = playlistXmlElement.createNewChildElement("Track");
+//            XmlElement* name = track->createNewChildElement("name");
+//            name->addTextElement(juce::File(filename).getFileNameWithoutExtension());
+
+        // Linkedlist approach on XML
+//        XmlElement playlistTrack ("TrackPlaylist");
+//        XmlElement * trackFile = new XmlElement("Thefilepath");
+//        XmlElement * trackName = new XmlElement("TheSongName");
+//        XmlElement * trackDuration = new XmlElement("4:50");
+//        
+//        
+//        playlistTrack.addChildElement(trackFile);
+//        playlistTrack.addChildElement(trackName);
+//        playlistTrack.addChildElement(trackDuration);
+//        
+//        playlistTrack.writeTo(juce::File{BinaryData::Playlist_xml});
+//        
         
     }
     //    trackTitles.emplace_back(files);

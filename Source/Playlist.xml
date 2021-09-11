@@ -4,6 +4,7 @@
             <track id="0">
                 <path>FilePath</path>
                 <song>songname</song>
+                <duartion>songduration</duration>
             </track>
             <track id="1">
                 <path>FilePath1</path>
@@ -25,5 +26,12 @@
                 <path>FilePath5</path>
                 <song>songname5</song>
             </track>
+            
+            <xml>
+                <trackfile>Thefilepath</trackfile>
+                <trackname>ketab hayaty ya 3ein</trackname>
+                <trackduration>3:50<trackduration>
+            </xml>
+            
         </tracks>
 </playlist>

@@ -22,6 +22,9 @@ using namespace juce;
 /*
 */
 class PlaylistComponent  : public juce::Component, public juce::TableListBoxModel, public juce::Button::Listener, public FileDragAndDropTarget, public juce::TextEditor::Listener
+
+//, public juce::XmlElement
+
 {
 public:
 //    PlaylistComponent();
@@ -66,10 +69,10 @@ private:
     std::vector<juce::File>trackFiles;
 //        std::vector<juce::URL>trackFiles;
     
-//    juce::XmlElement playlistXmlElement;
-//    juce::XmlElement track;
-//    juce::XmlElement name;
-//    juce::XmlElement path;
+//    std::unique_ptr <XmlElement> playlistXmlElement;
+//    std::unique_ptr <XmlElement> track;
+//    std::unique_ptr <XmlElement> name;
+//    std::unique_ptr <XmlElement> path;
 //
 //    juce::XmlDocument playlistXMLDoc;
 //    
