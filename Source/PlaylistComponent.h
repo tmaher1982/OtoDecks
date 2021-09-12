@@ -47,6 +47,7 @@ public:
     
     
     
+    void ReadPlaylistFile();
     
     void ManagePlaylist(juce::File filename);
     

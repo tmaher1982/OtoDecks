@@ -18,21 +18,7 @@ PlaylistComponent::PlaylistComponent( DJAudioPlayer* deckPlayer1, AudioFormatMan
     // In your constructor, you should add any child components, and
     // initialise any special settings that your component needs.
     
-//    trackTitles.push_back("Track 1");
-//    trackTitles.push_back("Track 2");
-//    trackTitles.push_back("Track 3");
-//    trackTitles.push_back("Track 4");
-//    trackTitles.push_back("Track 5");
-//    trackTitles.push_back("Track 6");
-//
-//    trackDurations.push_back("30");
-//    trackDurations.push_back("50");
-//    trackDurations.push_back("80");
-//    trackDurations.push_back("100");
-//    trackDurations.push_back("18");
-//    trackDurations.push_back("30");
-//
-//
+    ReadPlaylistFile();
     
     player1 = deckPlayer1;
     
@@ -315,9 +301,26 @@ void PlaylistComponent::textEditorReturnKeyPressed(juce::TextEditor&)
     }
 }
 
-
+// This reads the plaulist file and fills the playlist on app start
+void PlaylistComponent::ReadPlaylistFile()
+{
+        trackTitles.push_back("Track 1");
+        trackTitles.push_back("Track 2");
+        trackTitles.push_back("Track 3");
+        trackTitles.push_back("Track 4");
+        trackTitles.push_back("Track 5");
+        trackTitles.push_back("Track 6");
+    
+        trackDurations.push_back("30");
+        trackDurations.push_back("50");
+        trackDurations.push_back("80");
+        trackDurations.push_back("100");
+        trackDurations.push_back("18");
+        trackDurations.push_back("30");
+    
+}
 // This adds files added to teh playlist by drag and drop to playlist.xml
-void PlaylistComponent::ManagePlaylist(juce::File filename)
+void PlaylistComponent::ManagePlaylist(juce::File filename, juce::String)
 {
     // Add details to the XML file
 //    juce::XmlElement* playlistXmlElement = new juce::XmlElement();
