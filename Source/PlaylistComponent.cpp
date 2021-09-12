@@ -206,7 +206,7 @@ void PlaylistComponent::filesDropped(const juce::StringArray& files, int x, int 
     }
 }
 
-// This gets the track length
+// R3B : This gets the track length for track duraction 
 juce::String PlaylistComponent::getTrackDuration(juce::File trackFile)
 {
     juce::AudioFormatManager formatManager;
