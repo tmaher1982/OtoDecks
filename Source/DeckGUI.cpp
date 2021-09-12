@@ -111,22 +111,20 @@ void DeckGUI::resized()
 
 }
 
+// R1: Load two or more tracks
 void DeckGUI::buttonClicked(Button* button)
 {
     // Querying the memory address of which button was clicked
     if (button == &playButton)
     {
         std::cout << "PLay button was clicked" << std::endl;
-//        transportSource.start();
-        //playing = true;
 
         player->start();
     }
     if (button == &stopButton)
     {
         std::cout << "Stop button was clicked" << std::endl;
-//        transportSource.stop();
-        //playing = false;
+
         player->stop();
     }
 
@@ -135,7 +133,6 @@ void DeckGUI::buttonClicked(Button* button)
         FileChooser chooser{"Select a file..."};
         if (chooser.browseForFileToOpen())
         {
-//            loadURL(juce::URL{chooser.getResult()});
             player->loadURL(URL{chooser.getResult()});
             waveformDisplay.loadURL(URL{chooser.getResult()});
         }
@@ -170,7 +167,7 @@ bool DeckGUI::isInterestedInFileDrag(const StringArray &files)
     
 }
 
-
+// R1: Load Audio files into audio players
 void DeckGUI::filesDropped (const StringArray &files, int x, int y)
 {
     std::cout << "DeckGUI::filesDropped" << std::endl;

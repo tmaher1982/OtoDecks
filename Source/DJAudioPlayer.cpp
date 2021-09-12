@@ -40,7 +40,7 @@ void DJAudioPlayer::releaseResources()
     resampleSource.releaseResources();
 }
 
-
+// R1 : Load Audio file into audio players
 void DJAudioPlayer::loadURL(URL audioURL)
 {
     auto* reader = formatManager.createReaderFor(audioURL.createInputStream(false));
@@ -53,7 +53,7 @@ void DJAudioPlayer::loadURL(URL audioURL)
         }
 }
 
-
+// R1: Can mix the tracks by varuing each of their volumes
 void DJAudioPlayer::setGain(double gain)
 {
     if(gain < 0 || gain > 1.0)
@@ -66,6 +66,7 @@ void DJAudioPlayer::setGain(double gain)
     }
 }
 
+// R1: Can speed up and slow down tracks
 void DJAudioPlayer::setSpeed(double ratio)
 {
     if(ratio < 0 || ratio > 100)
