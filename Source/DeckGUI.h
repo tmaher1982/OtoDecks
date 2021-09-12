@@ -45,7 +45,6 @@ public:
     
 private:
     TextButton playButton{"PLAY"};
-//    ImageButton playButton;
     
     TextButton stopButton{"STOP"};
     TextButton loadButton{"LOAD"};

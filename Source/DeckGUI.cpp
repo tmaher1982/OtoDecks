@@ -70,6 +70,7 @@ void DeckGUI::paint (juce::Graphics& g)
 //    playButton.setImages(false, false, true, playImage, 1.0f, {}, playImage, 1.0f, {}, playImage, 1.0f, {});
 }
 
+// R2 Custom Graphics
 void DeckGUI::resized()
 {
     // This method is where you should set the bounds of any child
@@ -78,24 +79,26 @@ void DeckGUI::resized()
     
 //    playButton.setImages(false, false, true, playImage, 1.0f, {Colour(0xff3c1818)}, playImage, 1.0f, {Colour(0xff3c1818)}, playImage, 1.0f, {Colour(0xff3c1818)});
 //    playButton.setImages(false, false, true, playImage, 1.0f, {}, playImage, 1.0f, {}, playImage, 1.0f, {});
+    
+    
     playButton.setBounds(0, 0, getWidth(), rowH);
     
-    // Changing the look and feel of play button
+    // Changing the look and feel of play button R2
     playButton.setColour(0x1000100, juce::Colours::green);
     stopButton.setBounds(0, rowH , getWidth(), rowH);
     
-    // Changing the look and feel of Stop button
+    // Changing the look and feel of Stop button R2
     stopButton.setColour(0x1000100, juce::Colours::indianred);
     volSlider.setBounds(0, rowH * 2, getWidth(), rowH);
     
-    // Changing the Look and Feel for Volume Slider for R2A
+    // Changing the Look and Feel for Volume Slider for R2
     volSlider.setSliderStyle (Slider::Slider::RotaryHorizontalDrag);
 
     volSlider.setRange(0.0f, 1.0f, 0.01f);
     volSlider.setColour(Slider::ColourIds::thumbColourId, Colours::darkorange);
     
-    // Changing the Look and Feel for speed Slider
-    
+    // Changing the Look and Feel for speed Slider for R2
+    // Speed Slider now has orange colour and a Rotary Horizonal Drag
     speedSlider.setBounds(0, rowH * 3, getWidth(), rowH);
     speedSlider.setRange(0.0f, 5.0f, 0.01f);
     speedSlider.setSliderStyle (Slider::Slider::RotaryHorizontalDrag);
