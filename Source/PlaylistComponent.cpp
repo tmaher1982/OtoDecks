@@ -283,21 +283,22 @@ juce::String PlaylistComponent::getTrackDuration(juce::File trackFile)
 
 void PlaylistComponent::textEditorReturnKeyPressed(juce::TextEditor&)
 {
-    std::cout<<"Key pressed in playlist search called " <<std::endl;
+    std::cout<<"Key pressed in playlist search " <<std::endl;
     std::cout<<playlistSearch.getText() <<std::endl;
     juce::String searchText = playlistSearch.getText();
     
 //    auto foundtrack = find_if(trackTitles.begin(), trackTitles.end(), searchText);
 //    playlistSearch.getText()
-    for (int i = -1; i == trackTitles.size(); i++)
+    for (int i = 0; i == trackTitles.size(); i++)
     {
          if (trackTitles[i].contains(searchText))
          {
              std::cout<<"called"<<std::endl;
              std::cout<<"Index is " << i <<std::endl;
-//             This selects the row marching the keyword in search box
+//           This selects the row marching the keyword in search box
              tableComponent.selectRow(i);
          }
+        std::cout<<"not called" <<std::endl;
     }
 }
 
@@ -317,6 +318,52 @@ void PlaylistComponent::ReadPlaylistFile()
         trackDurations.push_back("100");
         trackDurations.push_back("18");
         trackDurations.push_back("30");
+    
+    
+    
+    // Read XML file
+    auto playlistXMLFile = BinaryData::Playlist_xml;
+    
+    juce::XmlDocument xmlPlaylist { playlistXMLFile};
+    
+    std::unique_ptr<juce::XmlElement> xmlPlaylistMain = xmlPlaylist.getDocumentElement();
+    
+    std::cout << "Loading XML !! " << std::endl;
+    if (xmlPlaylistMain == 0)
+    {
+        // If empty do nothing
+    }
+    else
+    {
+        if (xmlPlaylistMain->hasTagName(("musicTracks")))
+        {
+                for (auto* element: xmlPlaylistMain->getChildIterator())
+                {
+                    juce::File xmlTrackFile{};
+                    juce::String xmlTrackDuration{};
+                    juce::String xmlTrackName{};
+                    
+                    if (element-> hasAttribute("trackPath"))
+                    {
+                        xmlTrackFile =  juce::File(element->getStringAttribute("trackPath"));
+                    }
+                    
+                    if (element->hasAttribute("trackDuration"))
+                    {
+                        xmlTrackDuration = element->getStringAttribute("trackDuration");
+                    }
+                    
+                    if (element-> hasAttribute("trackName"))
+                    {
+                        xmlTrackName =  element->getStringAttribute("trackName");
+                    }
+                    
+                    trackFiles.push_back(xmlTrackFile);
+                    trackDurations.push_back(xmlTrackDuration);
+                    trackTitles.push_back(xmlTrackName);
+                }
+        }
+    }
     
 }
 // This adds files added to teh playlist by drag and drop to playlist.xml

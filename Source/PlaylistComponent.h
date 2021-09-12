@@ -52,8 +52,7 @@ public:
     void ManagePlaylist(juce::File filename, juce::String title, juce::String duration);
     
     void textEditorReturnKeyPressed(juce::TextEditor&)override;
-//    void clearPlaylist();
-//        std::vector<std::string> trackTitles;
+    
     
 private:
     
@@ -67,13 +66,7 @@ private:
     std::vector<juce::String> trackDurations;
     std::vector<juce::File>trackFiles;
     
-//    std::unique_ptr <XmlElement> playlistXmlElement;
-//    std::unique_ptr <XmlElement> track;
-//    std::unique_ptr <XmlElement> name;
-//    std::unique_ptr <XmlElement> path;
-//
-//    juce::XmlDocument playlistXMLDoc;
-//    
+
     AudioFormatManager& formatManager;
     std::unique_ptr<AudioFormatReaderSource> readerSource;
     AudioTransportSource transportSource;
