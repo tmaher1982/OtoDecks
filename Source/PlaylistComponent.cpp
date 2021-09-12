@@ -176,6 +176,7 @@ bool PlaylistComponent::isInterestedInFileDrag(const juce::StringArray& files)
     return true;
 }
 
+// R3A: Add files to the library
 void PlaylistComponent::filesDropped(const juce::StringArray& files, int x, int y)
 {
     std::cout << "files dragged in playlist " << std::endl;
@@ -240,7 +241,7 @@ void PlaylistComponent::textEditorReturnKeyPressed(juce::TextEditor&)
     }
 }
 
-// This reads the plaulist file and fills the playlist on app start
+// This reads the playlist file and fills the playlist on app start
 void PlaylistComponent::ReadPlaylistFile()
 {
         trackTitles.push_back("Track 1");
@@ -305,8 +306,8 @@ void PlaylistComponent::ReadPlaylistFile()
     
 }
 
-
-// This adds files added to teh playlist by drag and drop to playlist.xml
+// R3A allows the user to add files to their library
+// This adds files added to the playlist by drag and drop to playlist.xml
 void PlaylistComponent::ManagePlaylist(juce::File filename, juce::String title, juce::String duration)
 {
     std::cout << "Writing to  XML !! " << std::endl;

@@ -58,6 +58,7 @@ private:
     
     juce::TableListBox tableComponent;
 
+    // R3A : Vectors used for the tracks and their details
     std::vector<juce::String> trackTitles;
     std::vector<juce::String> trackDurations;
     std::vector<juce::File>trackFiles;
