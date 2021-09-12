@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Track playlist>
-    <Track0 trackPath="/Users/Tamer/tracks/aon_inspired.mp3"
-        trackDuration="20"
-        trackName="aon_inspired"/>
-</Track playlist>
+<playlist  deckPlaylist>
+    <Track id="0">
+        <trackPath>"/Users/User1/tracks/aon_inspired.mp3"</trackPath>
+        <trackDuration>"1:34"</trackDuration>
+        <trackName>"aon_inspired"</trackDuration>
+    </Track>
+</playlist>
