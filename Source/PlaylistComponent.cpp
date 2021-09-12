@@ -18,6 +18,7 @@ PlaylistComponent::PlaylistComponent( DJAudioPlayer* deckPlayer1, AudioFormatMan
     // In your constructor, you should add any child components, and
     // initialise any special settings that your component needs.
     
+    // R3E : The music library persists so that it isrestored when the user exits then restarts the application
     ReadPlaylistFile();
     
     
@@ -248,6 +249,7 @@ void PlaylistComponent::textEditorReturnKeyPressed(juce::TextEditor&)
     }
 }
 
+// R3E : The music library persists so that it isrestored when the user exits then restarts the application
 // This reads the playlist file and fills the playlist on app start
 void PlaylistComponent::ReadPlaylistFile()
 {
@@ -314,6 +316,7 @@ void PlaylistComponent::ReadPlaylistFile()
 }
 
 // R3A allows the user to add files to their library
+// R3E : The music library persists so that it isrestored when the user exits then restarts the application
 // This adds files added to the playlist by drag and drop to playlist.xml
 void PlaylistComponent::ManagePlaylist(juce::File filename, juce::String title, juce::String duration)
 {
