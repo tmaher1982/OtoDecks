@@ -200,69 +200,6 @@ void PlaylistComponent::filesDropped(const juce::StringArray& files, int x, int 
         // This updates the playlist table content
         tableComponent.updateContent();
         
-        //        ****************************************************************************
-        
-        
-        //        std::cout <<filename << std::endl;
-        //        juce::URL theTrack = URL({File{filename}});
-//        PlaylistComponent::trackFiles.push_back(filename);
-//                PlaylistComponent::trackFiles.push_back(theTrack);
-//        PlaylistComponent::playListLoadURL(filename);
-        
-//
-        
-        
-        ////        std::cout < "title is " << title << std::endl;
-        
-//        std::cout<<"tracktitles size " << trackTitles.size() << std::endl;
-        
-        
-//        PlaylistComponent::playListLoadURL(URL{files[0]});
-        
-        
-        
-        
-//        PlaylistComponent::getTrackDuration(filename);
-        
-        
-        // Correct one, but may not be needed
-        
-//        PlaylistComponent::playListLoadURL(URL{filename});
-        
-//        MainComponent::player1::loadURL(filename);
-        
-//        PlaylistComponent::trackTitles.push_back(theTrack);
-        
-        
-//        tabeleComponent.repaint();
-        
-//        std::cout<<"tracktitles size " << trackTitles.size() << std::endl;
-        
-        
-        // Update the method signature and details with the right parameters I have here
-//        PlaylistComponent::ManagePlaylist(juce::File filename)
-        
-        
-//            XmlElement* playlistXmlElement = new XmlElement();
-//            XmlElement* track = playlistXmlElement.createNewChildElement("Track");
-//            XmlElement* name = track->createNewChildElement("name");
-//            name->addTextElement(juce::File(filename).getFileNameWithoutExtension());
-
-        // Linkedlist approach on XML
-//        XmlElement playlistTrack ("TrackPlaylist");
-//        XmlElement * trackFile = new XmlElement("Thefilepath");
-//        XmlElement * trackName = new XmlElement("TheSongName");
-//        XmlElement * trackDuration = new XmlElement("4:50");
-//        
-//        
-//        playlistTrack.addChildElement(trackFile);
-//        playlistTrack.addChildElement(trackName);
-//        playlistTrack.addChildElement(trackDuration);
-//        
-//        playlistTrack.writeTo(juce::File{BinaryData::Playlist_xml});
-//
-        //        ****************************************************************************
-        
     }
 }
 
