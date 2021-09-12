@@ -49,7 +49,7 @@ public:
     
     void ReadPlaylistFile();
     
-    void ManagePlaylist(juce::File filename);
+    void ManagePlaylist(juce::File filename, juce::String title, juce::String duration);
     
     void textEditorReturnKeyPressed(juce::TextEditor&)override;
 //    void clearPlaylist();

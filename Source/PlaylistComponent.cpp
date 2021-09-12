@@ -320,7 +320,7 @@ void PlaylistComponent::ReadPlaylistFile()
     
 }
 // This adds files added to teh playlist by drag and drop to playlist.xml
-void PlaylistComponent::ManagePlaylist(juce::File filename, juce::String)
+void PlaylistComponent::ManagePlaylist(juce::File filename, juce::String title, juce::String duration)
 {
     // Add details to the XML file
 //    juce::XmlElement* playlistXmlElement = new juce::XmlElement();
