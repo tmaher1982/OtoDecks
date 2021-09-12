@@ -54,6 +54,7 @@ private:
     
     Component* refreshComponentForCell (int rowNumber, int columnId, bool isRowSelected, Component *existingComponentToUpdate) override;
     
+    // R3D: Component allows the user to load files from the library into a Deck
     void buttonClicked(juce::Button* button) override;
     
     juce::TableListBox tableComponent;
@@ -63,12 +64,15 @@ private:
     std::vector<juce::String> trackDurations;
     std::vector<juce::File>trackFiles;
     
+    // R3D : Component allows the user to load files from the library into a deck
     AudioFormatManager& formatManager;
     std::unique_ptr<AudioFormatReaderSource> readerSource;
     AudioTransportSource transportSource;
     ResamplingAudioSource resampleSource{&transportSource, false, 2};
     
     DJAudioPlayer* player1;
+    
+    // R3C: Component allows the user to search for files
     
     juce::TextEditor playlistSearch;
     

@@ -20,6 +20,8 @@ PlaylistComponent::PlaylistComponent( DJAudioPlayer* deckPlayer1, AudioFormatMan
     
     ReadPlaylistFile();
     
+    
+    // R3D: Component allows the user to load files from the library into a Deck
     player1 = deckPlayer1;
     
     tableComponent.getHeader().addColumn("Track Title", 1, 400); // Making 1 instead of 0 for juce 6
@@ -31,6 +33,7 @@ PlaylistComponent::PlaylistComponent( DJAudioPlayer* deckPlayer1, AudioFormatMan
     
     addAndMakeVisible(tableComponent);
     
+    // R3C: Component allows the user to search for files
     addAndMakeVisible(playlistSearch);
     playlistSearch.addListener(this);
 
@@ -139,6 +142,10 @@ Component* PlaylistComponent::refreshComponentForCell (int rowNumber, int column
     return existingComponentToUpdate;
 }
 
+
+//R3A : Extra allowing the use to manage library , by deleteing a track file
+//R3D : Component allows the user to load files from the library into a deck
+
 void PlaylistComponent::buttonClicked(Button* button)
 {
     int id = std::stoi(button->getComponentID().toStdString());
@@ -206,7 +213,7 @@ void PlaylistComponent::filesDropped(const juce::StringArray& files, int x, int 
     }
 }
 
-// R3B : This gets the track length for track duraction 
+// R3B : This gets the track length for track duraction
 juce::String PlaylistComponent::getTrackDuration(juce::File trackFile)
 {
     juce::AudioFormatManager formatManager;
@@ -221,6 +228,7 @@ juce::String PlaylistComponent::getTrackDuration(juce::File trackFile)
     return tlength;
 }
 
+// R3C: Component allows the user to search for files
 void PlaylistComponent::textEditorReturnKeyPressed(juce::TextEditor&)
 {
     std::cout<<"Key pressed in playlist search " <<std::endl;
@@ -237,7 +245,6 @@ void PlaylistComponent::textEditorReturnKeyPressed(juce::TextEditor&)
 //           This selects the row marching the keyword in search box
              tableComponent.selectRow(i);
          }
-        std::cout<<"not called" <<std::endl;
     }
 }
 
