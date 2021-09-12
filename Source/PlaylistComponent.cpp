@@ -200,6 +200,9 @@ void PlaylistComponent::filesDropped(const juce::StringArray& files, int x, int 
         // This updates the playlist table content
         tableComponent.updateContent();
         
+        // Add new added tracks to the Playlist.xml file
+        PlaylistComponent::ManagePlaylist(filename, title, duration);
+        
     }
 }
 
@@ -272,7 +275,7 @@ void PlaylistComponent::ReadPlaylistFile()
     }
     else
     {
-        if (xmlPlaylistMain->hasTagName(("musicTracks")))
+        if (xmlPlaylistMain->hasTagName(("playlist")))
         {
                 for (auto* element: xmlPlaylistMain->getChildIterator())
                 {
@@ -306,16 +309,24 @@ void PlaylistComponent::ReadPlaylistFile()
 // This adds files added to teh playlist by drag and drop to playlist.xml
 void PlaylistComponent::ManagePlaylist(juce::File filename, juce::String title, juce::String duration)
 {
+    std::cout << "Writing to  XML !! " << std::endl;
     // Add details to the XML file
-//    juce::XmlElement* playlistXmlElement = new juce::XmlElement();
-//    juce::XmlElement* track = playlistXmlElement.createNewChildElement("Track");
-//    juce::XmlElement* name = track->createNewChildElement("name");
-//    name->addTextElement(juce::File(filename).getFileNameWithoutExtension());
-//    juce::XmlElement* path = track->createNewChildElement("path");
-//    path->addTextElement(juce::File(filename).getFullPathName());
-//
-//    playlistXmlElement.writeTo(juce::File{"/Users/Tamer/tracks/playlist.xml"});
-//    playlistXmlElement.writeTo(juce::File{BinaryData::Playlist_xml});
     
+
+//
+//
+//    auto playlistXMLFile = BinaryData::Playlist_xml;
+//    juce::XmlDocument xmlPlaylist { playlistXMLFile};
+//
+//    std::unique_ptr<juce::XmlElement> xmlPlaylistMain = xmlPlaylist.getDocumentElement();
+//
+//    juce::XmlElement playlistXmlElement;
+//    juce::XmlElement xmlTrackFile = playlistXmlElement.createNewChildElement(URL({File{filename}}).getFileName());
+//    juce::XmlElement xmlTrackName = playlistXMLElement.createNewChildElement(title);
+//    juce::XmlElement xmlTrackDuration = playlistXMLElement.createNewChildElement(duration)
+//
+//    playlistXmlElement.writeTo(juce::File{BinaryData::Playlist_xml});
+//
+//
     
 }
