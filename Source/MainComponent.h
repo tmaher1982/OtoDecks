@@ -27,7 +27,6 @@ public:
     void paint (Graphics& g) override;
     void resized() override;
     
-
 private:
     //==============================================================================
     // Your private member variables go here...
@@ -50,7 +49,6 @@ private:
     MixerAudioSource mixerSource;
     
     PlaylistComponent playlistComponent{&player1, formatManager};
-    
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainComponent)
 };

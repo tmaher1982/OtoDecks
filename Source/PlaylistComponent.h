@@ -44,15 +44,11 @@ public:
     
     juce::String getTrackDuration(juce::File trackFile);
     
-    
-    
-    
     void ReadPlaylistFile();
     
     void ManagePlaylist(juce::File filename, juce::String title, juce::String duration);
     
     void textEditorReturnKeyPressed(juce::TextEditor&)override;
-    
     
 private:
     
@@ -66,7 +62,6 @@ private:
     std::vector<juce::String> trackDurations;
     std::vector<juce::File>trackFiles;
     
-
     AudioFormatManager& formatManager;
     std::unique_ptr<AudioFormatReaderSource> readerSource;
     AudioTransportSource transportSource;

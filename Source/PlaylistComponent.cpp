@@ -187,7 +187,6 @@ void PlaylistComponent::filesDropped(const juce::StringArray& files, int x, int 
         // This gets the file path that
         PlaylistComponent::trackFiles.push_back(filename.getFullPathName());
 
-        
         //This adds track name to the playlist
         auto theTrack = URL({File{filename}});
         juce::String title = theTrack.getFileName();
@@ -227,14 +226,13 @@ void PlaylistComponent::textEditorReturnKeyPressed(juce::TextEditor&)
     std::cout<<playlistSearch.getText() <<std::endl;
     juce::String searchText = playlistSearch.getText();
     
-//    auto foundtrack = find_if(trackTitles.begin(), trackTitles.end(), searchText);
-//    playlistSearch.getText()
     for (int i = 0; i == trackTitles.size(); i++)
     {
          if (trackTitles[i].contains(searchText))
          {
              std::cout<<"called"<<std::endl;
              std::cout<<"Index is " << i <<std::endl;
+             
 //           This selects the row marching the keyword in search box
              tableComponent.selectRow(i);
          }
@@ -306,15 +304,14 @@ void PlaylistComponent::ReadPlaylistFile()
     }
     
 }
+
+
 // This adds files added to teh playlist by drag and drop to playlist.xml
 void PlaylistComponent::ManagePlaylist(juce::File filename, juce::String title, juce::String duration)
 {
     std::cout << "Writing to  XML !! " << std::endl;
     // Add details to the XML file
     
-
-//
-//
 //    auto playlistXMLFile = BinaryData::Playlist_xml;
 //    juce::XmlDocument xmlPlaylist { playlistXMLFile};
 //
