@@ -178,7 +178,7 @@ void DeckGUI::filesDropped (const StringArray &files, int x, int y)
     {
         player->loadURL(URL{File{files[0]}});
         
-        // Allow waveformDisplay to draw the file on drag and drop;
+        // R4: Allow waveformDisplay to draw the file on drag and drop;
         waveformDisplay.loadURL(URL{File{files[0]}});
     }
 }

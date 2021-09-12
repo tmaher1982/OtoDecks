@@ -25,6 +25,7 @@ PlaylistComponent::PlaylistComponent( DJAudioPlayer* deckPlayer1, AudioFormatMan
     // R3D: Component allows the user to load files from the library into a Deck
     player1 = deckPlayer1;
     
+    // R4 Playlist layout change
     tableComponent.getHeader().addColumn("Track Title", 1, 400); // Making 1 instead of 0 for juce 6
     tableComponent.getHeader().addColumn("Duration(min:sec)", 2, 200); // One More Column for the Duration
     tableComponent.getHeader().addColumn("", 3, 100); // One more column for the play button
@@ -63,6 +64,7 @@ void PlaylistComponent::paint (juce::Graphics& g)
     g.drawText ("PlaylistComponent", getLocalBounds(), juce::Justification::centred, true);   // draw some placeholder text
 }
 
+// R4 Playlist layout change
 void PlaylistComponent::resized()
 {
     // This method is where you should set the bounds of any child
